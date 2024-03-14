@@ -1,0 +1,9 @@
+.carousel-inner .carousel-item img {
+    width: 100%; /* Ajusta el ancho de las imágenes al 100% del contenedor */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+}
+
+.carousel {
+    max-width: 800px; /* Define un ancho máximo para el carrusel */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+}

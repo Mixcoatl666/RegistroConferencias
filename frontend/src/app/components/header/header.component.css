@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 120px;
+    background: #11141a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #0ef;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1f242d;
+    font-size: 100px;
+    color: #fff;
+    font-weight: 700;
+}
+
+section:nth-child(odd) {
+    background: #323946;
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 1100px) {
+    header {
+        padding: 20px 40px; /* Reduce el padding en pantallas más pequeñas */
+    }
+
+    .logo {
+        font-size: 20px; /* Reduce el tamaño de la fuente del logo */
+    }
+
+    nav {
+        display: none; /* Oculta la navegación en pantallas más pequeñas */
+    }
+}
+
+/* Agrega este estilo para el menú desplegable */
+.menu-toggle {
+    display: none; /* Oculta el botón del menú en pantallas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.responsive-menu {
+    display: none; /* Oculta el menú desplegable por defecto */
+    position: absolute;
+    top: 70px; /* Ajusta la posición del menú desplegable */
+    left: 0;
+    background-color: #11141a;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.responsive-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.responsive-menu a:hover {
+    color: #0ef;
+}
+
+/* Estilos para mostrar el menú desplegable en pantallas pequeñas */
+@media screen and (max-width: 1100px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón del menú en pantallas pequeñas */
+    }
+
+    .main-nav {
+        display: none; /* Oculta el menú principal en pantallas pequeñas */
+    }
+
+    .responsive-menu {
+        display: block; /* Muestra el menú desplegable en pantallas pequeñas */
+    }
+}

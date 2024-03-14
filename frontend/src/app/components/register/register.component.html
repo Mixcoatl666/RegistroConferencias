@@ -1,0 +1,69 @@
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center" style="background-color: #f8f8f8;">
+                <h5>
+                    Ingresar al Sistema
+                </h5>
+            </div>
+          <div class="card-body">
+            <form [formGroup]="registerForm">
+              <div class="form-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre Completo">
+                <small *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="form-text text-danger">
+                  <div *ngIf="nombre.hasError('required')">Ingresa tu Nombre</div>
+                </small>
+              </div>
+  
+              <div class="form-group mt-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Ingresa Email">
+                <small *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
+                  <div *ngIf="email.hasError('required')">Ingresa Email</div>
+                  <div *ngIf="email.hasError('email')">Email Incorrecto</div>
+                </small>
+              </div>
+  
+              <div class="form-group mt-3">
+                <label for="sexo">Género</label>
+                <select class="form-control" formControlName="sexo">
+                  <option value="" disabled selected>Selecciona tu género</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+                </select>
+                <small *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="form-text text-danger">
+                  <div *ngIf="sexo.hasError('required')">Selecciona tu género</div>
+                </small>
+              </div>
+  
+              <div class="form-group mt-3">
+                <label for="pass">Contraseña</label>
+                <input type="password" class="form-control" formControlName="pass" placeholder="Ingresa la Contraseña">
+                <small *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="form-text text-danger">
+                  <div *ngIf="pass.hasError('required')">Ingresa Contraseña</div>
+                </small>
+              </div>
+  
+              <div class="form-group mt-3">
+                <label for="confirmPass">Confirmar Contraseña</label>
+                <input type="password" class="form-control" formControlName="confirmPass" placeholder="Confirma la Contraseña">
+                <small *ngIf="confirmPass.invalid && (confirmPass.dirty || confirmPass.touched)" class="form-text text-danger">
+                  <div *ngIf="confirmPass.hasError('required')">Confirma tu Contraseña</div>
+                  <div *ngIf="confirmPass.hasError('passwordMismatch')">Las contraseñas no coinciden</div>
+                </small>
+              </div>
+  
+              <button type="submit" class="btn btn-primary mt-3" [disabled]="!registerForm.valid">Registrar</button>
+  
+              <div class="mt-2">
+                ¿No tienes cuenta? <a routerLink="/login">Ingresa</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
