@@ -7,8 +7,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreditosComponent } from './components/creditos/creditos.component';
+import { AdministradoresComponent } from './components/administradores/administradores.component';
 
 const routes: Routes = [
+  {path: 'administradores', component: AdministradoresComponent},
   {path: 'creditos', component: CreditosComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

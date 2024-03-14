@@ -5,9 +5,9 @@
       <a routerLink="/services" [class.active]="currentSection === 'services'" (click)="handleClick('services')">Services</a>
       <a routerLink="/portfolio" [class.active]="currentSection === 'portfolio'" (click)="handleClick('portfolio')">Portfolio</a>
       <a routerLink="/contact" [class.active]="currentSection === 'contact'" (click)="handleClick('contact')">Contact</a>
-      <ng-container *ngIf="rol === 'admin'">
+      <ng-container *ngIf="rol === 'Administrador'">
           <!-- Opciones de menú adicionales para el administrador -->
-          <a routerLink="/admin-dashboard" [class.active]="currentSection === 'admin-dashboard'" (click)="handleClick('admin-dashboard')">Admin Dashboard</a>
+          <a routerLink="/administradores" [class.active]="currentSection === 'admin-dashboard'" (click)="handleClick('admin-dashboard')">Admin Dashboard</a>
       </ng-container>
   </nav>
   <button class="menu-toggle" (click)="toggleMenu()">
