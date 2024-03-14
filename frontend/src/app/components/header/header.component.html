@@ -1,28 +1,33 @@
-<header>
-  <a routerLink="/home" class="logo" (click)="handleClick(null)">Conferencias UTNG</a>
-  <nav class="main-nav">
-      <a routerLink="/about" [class.active]="currentSection === 'about'" (click)="handleClick('about')">Creditos</a>
-      <a routerLink="/services" [class.active]="currentSection === 'services'" (click)="handleClick('services')">Services</a>
-      <a routerLink="/portfolio" [class.active]="currentSection === 'portfolio'" (click)="handleClick('portfolio')">Portfolio</a>
-      <a routerLink="/contact" [class.active]="currentSection === 'contact'" (click)="handleClick('contact')">Contact</a>
-      <ng-container *ngIf="rol === 'Administrador'">
-          <!-- Opciones de menú adicionales para el administrador -->
-          <a routerLink="/administradores" [class.active]="currentSection === 'admin-dashboard'" (click)="handleClick('admin-dashboard')">Admin Dashboard</a>
-      </ng-container>
-  </nav>
-  <button class="menu-toggle" (click)="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-  </button>
-  <div class="responsive-menu" *ngIf="showMenu">
-      <a routerLink="/about" (click)="handleClick('about')">Creditos</a>
-      <a routerLink="/services" (click)="handleClick('services')">Services</a>
-      <a routerLink="/portfolio" (click)="handleClick('portfolio')">Portfolio</a>
-      <a routerLink="/contact" (click)="handleClick('contact')">Contact</a>
-      <ng-container *ngIf="rol === 'admin'">
-          <!-- Opciones de menú adicionales para el administrador -->
-          <a routerLink="/admin-dashboard" (click)="handleClick('admin-dashboard')">Admin Dashboard</a>
-      </ng-container>
+<header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand me-auto" routerLink="/home" (click)="handleClick(null)">Conferencias UTNG</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/services" [class.active]="currentSection === 'services'" (click)="handleClick('services')">Registrar conferencia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/portfolio" [class.active]="currentSection === 'portfolio'" (click)="handleClick('portfolio')">Unirse a una conferencia</a>
+        </li>
+        <li class="nav-item" *ngIf="rol === 'Administrador'">
+          <a class="nav-link" routerLink="/administradores" [class.active]="currentSection === 'admin-dashboard'" (click)="handleClick('admin-dashboard')">Panel Admin</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle bs-tertiary-bg text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Configuracion
+          </a>
+          <ul class="dropdown-menu bs-tertiary-bg">
+            <li><a class="dropdown-item text-light" href="#" >Perfil</a></li>
+            <li><a class="dropdown-item text-light" href="#" >Cerrar Sesion</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Creditos</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>

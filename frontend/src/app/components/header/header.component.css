@@ -36,10 +36,6 @@ nav a {
     transition: .3s;
 }
 
-nav a:hover,
-nav a.active {
-    color: #0ef;
-}
 
 section {
     min-height: 100vh;
@@ -57,7 +53,7 @@ section:nth-child(odd) {
 }
 
 /* Media query para pantallas más pequeñas */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 950px) {
     header {
         padding: 20px 40px; /* Reduce el padding en pantallas más pequeñas */
     }
@@ -107,12 +103,8 @@ section:nth-child(odd) {
     transition: color 0.3s ease-in-out;
 }
 
-.responsive-menu a:hover {
-    color: #0ef;
-}
-
 /* Estilos para mostrar el menú desplegable en pantallas pequeñas */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
     .menu-toggle {
         display: block; /* Muestra el botón del menú en pantallas pequeñas */
     }
@@ -124,4 +116,20 @@ section:nth-child(odd) {
     .responsive-menu {
         display: block; /* Muestra el menú desplegable en pantallas pequeñas */
     }
+}
+
+.dropdown-menu {
+    background-color: #11141a; /* Color de fondo del dropdown */
+    border-radius: 0.25rem; /* Ajusta el radio de los bordes para que sean redondeados */
+    border: none; /* Elimina cualquier borde predeterminado */
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff; /* Color del texto del dropdown */
+    border-radius: 0.25rem; /* Ajusta el radio de los bordes para que sean redondeados */
+    padding: 8px 12px; /* Ajusta el padding para dar espacio alrededor de los elementos */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #000; /* Color de fondo al pasar el ratón sobre los elementos del dropdown */
 }
