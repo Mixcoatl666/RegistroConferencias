@@ -12,7 +12,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreditosComponent } from './components/creditos/creditos.component';
-import { RegistrarConferenciaComponent } from './rcomponents/registrar-conferencia/registrar-conferencia.component';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { RegistrarConferenciaComponent } from './rcomponents/registrar-conferenc
     AdministradoresComponent,
     HomeComponent,
     CreditosComponent,
-    RegistrarConferenciaComponent
   ],
   imports: [
     BrowserModule,
