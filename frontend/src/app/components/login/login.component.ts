@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 //import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,21 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
+  //------------
   loginForm = this.fb.group({
     email:['', [Validators.required, Validators.email]],
     password:['',[Validators.required]]
   });
+  //------------
 
   constructor(
     private fb:FormBuilder,
     //private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userService:UserService
   ) {}
 
+  //------------
   get email() {
     return this.loginForm.controls['email'];
   }
@@ -34,5 +39,7 @@ export class LoginComponent {
     const {email, password} = this.loginForm.value;
 
     // Lógica de autenticación aquí
+    this.userService.login(email!,password!);
   }
+  
 }

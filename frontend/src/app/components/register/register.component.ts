@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 //import { UsuarioService } from '../../services/usuario.service';
+import { Usuario } from '../../models/Usuario';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -22,11 +24,21 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private router: Router,
     //private usuarioService: UsuarioService
+    private userService:UserService
     ){ }
 
-  /*onSubmit(){
-    this.usuarioService.createUsuario(usuario)
-  }*/
+  onSubmit(){
+    //this.usuarioService.createUsuario(usuario)
+    try{
+      const {nombre,sexo,email,pass} = this.registerForm.value;
+      const nwUSer = new Usuario(nombre!,sexo!,email!,pass!);
+      this.userService.createUser(nwUSer);
+    }catch(error){
+      console.log(error);
+    };
+    
+    
+  }
 
   get email(){
     return this.registerForm.controls['email']
