@@ -36,10 +36,15 @@ export class LoginComponent {
 
   login() {
     console.log('Se obtienen los datos');
-    const {email, password} = this.loginForm.value;
+    try {
+      const {email, password} = this.loginForm.value;
+      // Lógica de autenticación aquí
+      this.userService.login(email!,password!);
+      this.router.navigate(["home"]);
+    } catch (error) {
+      
+    }
 
-    // Lógica de autenticación aquí
-    this.userService.login(email!,password!);
   }
   
 }
