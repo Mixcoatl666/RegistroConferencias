@@ -1,4 +1,5 @@
-<div class="container mt-5 mb-5">
+<!-- Inicio: Tarjeta de prueba para Añadir conferencia -->
+<div class="container mt-5 mb-5" id="addConfer" >
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
@@ -9,7 +10,7 @@
             </div>
           <div class="card-body">
             <!-- formulario -->
-            <form [formGroup]="conferForm" (ngSubmit)="onSubmit()" >
+            <form [formGroup]="conferForm" (ngSubmit)="onSubmitConfer()" >
               <!-- Titulo -->
               <div class="form-group">
                 <label for="titulo">Titulo</label>
@@ -66,4 +67,25 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
+<!-- Fin: Tarjeta de prueba para Añadir conferencia -->
+
+<!-- Inicio: Tarjeta de prueba para Asistir a conferencia -->
+<div class="containerConf" id="assist" >
+    <div class="cardConf">
+        <div class="imageConf">
+            <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
+        </div>
+        <div class="contentConf">
+            <h2>Confer Static</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Tempora ex deleniti qui ea corporis odio laudantium maiores omnis laborum,
+                quasi voluptas velit cumque reprehenderit sapiente iusto cupiditate, 
+                dolorem delectus quis.
+            </p>
+            <button type="submit" (click)="onSubmitAssist()" >Asistir</button>
+        </div>
+    </div>
+</div>
+<!-- Fin: Tarjeta de prueba para Asistir a conferencia -->

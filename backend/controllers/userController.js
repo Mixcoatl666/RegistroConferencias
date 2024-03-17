@@ -32,7 +32,7 @@ const autenticarUsuario = async (req,res) => {
     try {
         const logUser = await Usuario.findOne({email});
         if(!logUser){
-            return res.status.json({msg:"El usuario no existe"});
+            return res.json({msg:"El usuario no existe"});
         }else{
             if(logUser.pass !== pass){
                 return res.json({msg:"La contraseña es incorrecta"});

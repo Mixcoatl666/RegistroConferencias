@@ -13,7 +13,7 @@ export class Conferencia{
                 Foto:'',
             },
         CupoTotal:0,
-        AsistentesRegistrados:[]
+        AsistentesRegistrados:[],
     };
     //---------------
     constructor(titulo:string,descrip:string){

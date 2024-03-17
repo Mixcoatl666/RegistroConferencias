@@ -16,7 +16,7 @@ export class ConferenceService {
    */
   async addConference(conference:Conferencia){
     try {
-      const token = localStorage.getItem('tkn');
+      const token = sessionStorage.getItem('tkn');
     
       if(!token) return;
   

@@ -34,15 +34,17 @@ export class LoginComponent {
     return this.loginForm.controls['password'];
   }
 
-  login() {
+    login() {
     console.log('Se obtienen los datos');
     try {
       const {email, password} = this.loginForm.value;
       // Lógica de autenticación aquí
       this.userService.login(email!,password!);
-      this.router.navigate(["home"]);
+      setTimeout(() => {
+        this.router.navigate(["/home"]);
+      }, 300);
     } catch (error) {
-      
+      console.log("Erro Angular");
     }
 
   }

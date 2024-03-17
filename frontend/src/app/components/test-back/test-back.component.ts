@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Conferencia } from '../../models/Conference';
 import { ConferenceService } from '../../services/conference.service';
+import { AssistService } from '../../services/assist.service';
 
 @Component({
   selector: 'app-test-back',
@@ -11,6 +12,7 @@ import { ConferenceService } from '../../services/conference.service';
 export class TestBackComponent {
 
   //-----------
+  //  Formulario de conferencias
   conferForm = this.fb.group({
     titulo: ['', [Validators.required]],
     descrip: ['', [Validators.required]], // Agregar el campo de sexo al formulario
@@ -26,13 +28,17 @@ export class TestBackComponent {
   //-----------
   constructor(
     private fb : FormBuilder,
-    private conferenceService:ConferenceService
+    private conferenceService:ConferenceService,
+    private assistService:AssistService
   ){
 
   }
 
   //--------
-  onSubmit(){
+  /**
+   * Funcion para añadir una conferencia
+   */
+  onSubmitConfer(){
     const { 
       titulo, 
       descrip, 
@@ -57,5 +63,12 @@ export class TestBackComponent {
     
     console.log(nwConfer)
     this.conferenceService.addConference(nwConfer);
+  }
+  /**
+   * Funcion para asistir a una conferencia
+   */
+  onSubmitAssist(){
+    console.log("Event click active...");
+    this.assistService.assitConference();
   }
 }
