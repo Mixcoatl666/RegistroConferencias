@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AdministradoresComponent } from './components/administradores/administradores.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreditosComponent } from './components/creditos/creditos.component';
+import { TestBackComponent } from './components/test-back/test-back.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CreditosComponent } from './components/creditos/creditos.component';
     AdministradoresComponent,
     HomeComponent,
     CreditosComponent,
+    TestBackComponent,
   ],
   imports: [
     BrowserModule,

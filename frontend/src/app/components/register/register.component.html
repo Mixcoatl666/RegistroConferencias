@@ -8,7 +8,7 @@
                 </h5>
             </div>
           <div class="card-body">
-            <form [formGroup]="registerForm">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
               <div class="form-group">
                 <label for="nombre">Nombre Completo</label>
                 <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre Completo">
