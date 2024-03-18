@@ -1,9 +1,10 @@
 import express,{ json } from 'express';
 import { 
     nuevaConf,
-    listarConfs,
+    listarConfsExp,
+    listConfsAdmin,
     infoConfer,
-    todaysConfs
+    todaysConfs,
 } from '../controllers/conferenceController.js'
 import identi from '../middlewares/identi.js';
 
@@ -16,10 +17,14 @@ const ROUTER = express.Router();   //  Para usar los metodos http
  * ej. router.get('/',usuarios);
  * ej. router.post('/',crearUsuario);
 */
-//  Registrar, listar conferencias
+//  Registrar, listar conferencias por exp
 ROUTER.route('/')
         .post(identi,nuevaConf)
-        .get(identi,listarConfs)
+        .get(identi,listarConfsExp)
+;
+// Listar conferencias 
+ROUTER.route('/adm')
+        .get(listConfsAdmin)
 ;
 // obtener confeencia por titulo
 ROUTER.route('/title/:titulo')

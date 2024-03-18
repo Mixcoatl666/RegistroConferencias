@@ -15,7 +15,7 @@ const nuevaConf = async (req,res) => {
 };
 
 //----Lista todas las conferencias por expositor
-const listarConfs = async (req,res) => {
+const listarConfsExp = async (req,res) => {
     const {id} = req.usuario;
     const confers = await Conferencia.find().where('Horario.Expositor._id').equals(id);
     if(confers.length >=  0){
@@ -24,6 +24,20 @@ const listarConfs = async (req,res) => {
         res.json({msg:"No se encontraron conferencias"});
     };
 };
+
+//----Listar todas las conferencias
+const listConfsAdmin = async (req,res) => {
+    try {
+        const confers = await Conferencia.find();
+        if(confers.length > 0){
+            res.status(200).json(confers);
+        }
+    } catch (error) {
+        res.json("No hay conferencias")
+    }
+}
+
+
 // Muestra lugares y horarios de una conferencia elegida
 const infoConfer = async (req,res) => {
     // obtener nombre de la conferencia
@@ -70,7 +84,8 @@ const todaysConfs = async (req,res) => {
 }
 export {
     nuevaConf,
-    listarConfs,
+    listarConfsExp,
+    listConfsAdmin,
     infoConfer,
-    todaysConfs
+    todaysConfs,
 };

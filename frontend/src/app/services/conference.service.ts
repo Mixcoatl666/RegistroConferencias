@@ -32,5 +32,14 @@ export class ConferenceService {
       console.log("Error en angular");
     }
   }
+  //
+  async listConfersAdm(){
+    try {
+      const { data } = await clienteAxios.get('/confer/adm');
+      console.log(data);
+    } catch (error) {
+      console.log("Error en Angular")
+    }
+  }
   //-----------
 }
