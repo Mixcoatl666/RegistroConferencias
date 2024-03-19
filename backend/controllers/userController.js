@@ -44,7 +44,7 @@ const autenticarUsuario = async (req,res) => {
                         nombre:logUser.nombre,
                         email:logUser.email,
                         token: generarJWT(logUser._id,logUser.sexo)
-                    }});
+                }});
 
             }
         }

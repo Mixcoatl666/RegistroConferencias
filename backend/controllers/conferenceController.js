@@ -90,7 +90,7 @@ const infoConfer = async (req,res) => {
                 Semblanza:conf.Horario.Expositor.Semblanza,
                 HoraInicio:conf.Horario.HoraInicio,
                 HoraFin:conf.Horario.HoraFin,
-                Lugar: conf.Horario.HoraFin
+                Lugar: conf.Horario.Lugar
             };
             //  Acumular datos 
             dataToShare.push(filterData)

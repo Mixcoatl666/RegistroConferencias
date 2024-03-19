@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConferenceService } from '../../services/conference.service';
 import { AssistService } from '../../services/assist.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-conferences',
   templateUrl: './conferences.component.html',
@@ -12,7 +13,8 @@ export class ConferencesComponent implements OnInit{
   //---------
   constructor(
     private confersService:ConferenceService,
-    private assistSerice:AssistService
+    private assistSerice:AssistService,
+    private router:Router
   ){
     this.listConferences = new Array();
   }
@@ -36,6 +38,7 @@ export class ConferencesComponent implements OnInit{
     this.assistSerice.assitConference(id);
   }
   onSubmitGet(title:string){
+    this.router.navigate([`/confer/details/${title}`]);
     this.confersService.getOneConfer(title);
   }
 }

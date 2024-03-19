@@ -36,7 +36,7 @@ export class TestBackComponent implements OnInit{
 
   //--------
   ngOnInit(): void {
-    this.getConfersDispo();
+    //this.getConfersDispo();
   }
   /**
    * Funcion para añadir una conferencia

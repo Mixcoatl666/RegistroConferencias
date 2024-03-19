@@ -77,6 +77,7 @@ export class ConferenceService {
       }
       const { data } = await clienteAxios.get(url,config);
       console.log(data);
+      return data;
     } catch (error) {
       console.log("Error de angular")
     }
