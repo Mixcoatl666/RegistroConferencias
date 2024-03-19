@@ -9,8 +9,8 @@ export class AssistService {
   //-----------
   constructor() { }
   //-----------
-  async assitConference(){
-    const id = '65f6ea2dc7bb0d3f94175a24';
+  async assitConference(id:string){
+    //const id = '65f6ea2dc7bb0d3f94175a24';
     const token = sessionStorage.getItem('tkn');
     if(!token) return;
     try {

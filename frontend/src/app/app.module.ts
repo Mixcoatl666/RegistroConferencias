@@ -13,6 +13,7 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { HomeComponent } from './components/home/home.component';
 import { CreditosComponent } from './components/creditos/creditos.component';
 import { TestBackComponent } from './components/test-back/test-back.component';
+import { CrmConfersComponent } from './components/crm-confers/crm-confers.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { TestBackComponent } from './components/test-back/test-back.component';
     HomeComponent,
     CreditosComponent,
     TestBackComponent,
+    CrmConfersComponent,
   ],
   imports: [
     BrowserModule,

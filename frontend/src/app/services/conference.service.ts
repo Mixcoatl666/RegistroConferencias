@@ -37,8 +37,29 @@ export class ConferenceService {
     try {
       const { data } = await clienteAxios.get('/confer/adm');
       console.log(data);
+      return data;
     } catch (error) {
       console.log("Error en Angular")
+    }
+  }
+  //
+  async getConfsDisp(){
+    try {
+      const { data } = await clienteAxios.get('/confer/pbl');
+      console.log(data);
+      return(data);
+    } catch (error) {
+      console.log("Error Angular");
+    }
+  }
+  //
+  async changeStatusConf(id:string,status:boolean){
+    try {
+      const url = `/confer/adm/?id=${id}&status=${status}`;
+      const { data } = await clienteAxios.put(url,status);
+      console.log(data);
+    } catch (error) {
+      console.log("Error angular");
     }
   }
   //-----------

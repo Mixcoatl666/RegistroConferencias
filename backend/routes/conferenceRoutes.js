@@ -3,6 +3,8 @@ import {
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
+    listConfsDisp,
+    switchStatus,
     infoConfer,
     todaysConfs,
 } from '../controllers/conferenceController.js'
@@ -17,14 +19,19 @@ const ROUTER = express.Router();   //  Para usar los metodos http
  * ej. router.get('/',usuarios);
  * ej. router.post('/',crearUsuario);
 */
-//  Registrar, listar conferencias por exp
+//  Registrar, listar conferencias por expositor
 ROUTER.route('/')
         .post(identi,nuevaConf)
         .get(identi,listarConfsExp)
 ;
-// Listar conferencias 
+// rutas adm Listar conferencias para el admin
 ROUTER.route('/adm')
         .get(listConfsAdmin)
+        .put(switchStatus)
+;
+// listar confs aprovadas
+ROUTER.route('/pbl')
+        .get(listConfsDisp)
 ;
 // obtener confeencia por titulo
 ROUTER.route('/title/:titulo')

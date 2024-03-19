@@ -8,17 +8,19 @@ import { ConferenceService } from '../../services/conference.service';
 })
 export class AdministradoresComponent implements OnInit{
   //----------
-
+  public conferennces:Array<any>; 
   //----------
   constructor(
     private conferenceService:ConferenceService
-  ){}
+  ){
+    this.conferennces = new Array();
+  }
   //----------
   ngOnInit(): void {
     this.getConferences();  
   }
 
-  getConferences(){
-    this.conferenceService.listConfersAdm();
+  async getConferences(){
+    this.conferennces = await this.conferenceService.listConfersAdm();
   }
 }

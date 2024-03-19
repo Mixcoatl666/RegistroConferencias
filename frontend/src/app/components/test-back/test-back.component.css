@@ -76,13 +76,15 @@
 
 .containerConf .cardConf .contentConf p {
     color: #333;
+    height: 8.1rem;
+    overflow: hidden;
 }
 
 .containerConf .cardConf .contentConf button {
     position: relative;
     top: 15px;
     display: inline-block;
-    padding: 12px 25px;
+    padding: 12px 20px;
     text-decoration: none;
     background: #1B1B1B;
     color: #fff;

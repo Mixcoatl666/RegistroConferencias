@@ -14,7 +14,7 @@ const nuevaConf = async (req,res) => {
     }
 };
 
-//----Lista todas las conferencias por expositor
+//----Lista  conferencias por expositor
 const listarConfsExp = async (req,res) => {
     const {id} = req.usuario;
     const confers = await Conferencia.find().where('Horario.Expositor._id').equals(id);
@@ -33,7 +33,31 @@ const listConfsAdmin = async (req,res) => {
             res.status(200).json(confers);
         }
     } catch (error) {
-        res.json("No hay conferencias")
+        res.json({msg:"No hay conferencias"})
+    }
+}
+
+const listConfsDisp = async (req,res) => {
+    try {
+        const confs = await Conferencia.find().where('Status').equals(true);
+        if(confs.length >0 ){
+            res.status(200).json(confs);
+        }
+    } catch (error) {
+        res.json({msg:"No hay conferencias disponibles"});
+    }
+}
+
+//----Cambiar status
+const switchStatus = async (req,res) => {
+    //const { id } = req.params;
+    const { id,status } = req.query
+    try {
+        const  data  = await Conferencia.updateOne({'_id':id},{'Status':status});
+        res.json({msg:"Conferencia habilitada"});
+        console.log(data); 
+    } catch (error) {
+        res.json({msg:"Fallo el update"});
     }
 }
 
@@ -86,6 +110,8 @@ export {
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
+    listConfsDisp,
+    switchStatus,
     infoConfer,
     todaysConfs,
 };
