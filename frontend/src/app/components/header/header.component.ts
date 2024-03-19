@@ -7,7 +7,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
   currentSection: string | null = null; // Ahora permite valores de string o null
-  rol: string = ''; // Simula el rol del usuario
+  rol: string = 'Administrador'; // Simula el rol del usuario
   showMenu: boolean = false; // Variable para controlar la visibilidad del menú desplegable
 
   @HostListener('window:scroll', [])

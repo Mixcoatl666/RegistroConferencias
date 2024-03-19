@@ -1,0 +1,29 @@
+<header class="header" >
+    <div class="containerj content-header">
+        <div class="bar">
+            <div class="logo">
+                <a href="/home">
+                    <h1 class="site-name" >App<span>Confs</span></h1>
+                </a>
+            </div>
+            <div class="log">
+                @if (loged) {
+                    <a class="header-login" (click)="logOut()" >Logout</a>
+                }@else{
+                    <a class="header-login" [routerLink]="['/login']">Login</a>
+                }
+                <nav class="navbar">
+                    <a [routerLink]="['/']">Mis Conferencias</a>
+                    <a [routerLink]="['/']">1 link</a>
+                    <a [routerLink]="['/confer/add']">Añadir Conferencia</a>
+                    <a [routerLink]="['/administradores']">Administrar</a>
+                    <a (click)="logOut()">Cerrar Sesion</a>
+                </nav>
+            </div>
+        </div>
+        <div class="slogan">
+            <h1>Encuentra Tu Conferencia</h1>
+            <p>Las mejores conferencias a un solo click</p>
+        </div>
+    </div>
+</header>
