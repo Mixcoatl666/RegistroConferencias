@@ -32,5 +32,55 @@ export class ConferenceService {
       console.log("Error en angular");
     }
   }
+  //
+  async listConfersAdm(){
+    try {
+      const { data } = await clienteAxios.get('/confer/adm');
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error en Angular")
+    }
+  }
+  //
+  async getConfsDisp(){
+    try {
+      const { data } = await clienteAxios.get('/confer/pbl');
+      console.log(data);
+      return(data);
+    } catch (error) {
+      console.log("Error Angular");
+    }
+  }
+  //
+  async changeStatusConf(id:string,status:boolean){
+    try {
+      const url = `/confer/adm/?id=${id}&status=${status}`;
+      const { data } = await clienteAxios.put(url,status);
+      console.log(data);
+    } catch (error) {
+      console.log("Error angular");
+    }
+  }
+  // 
+  async getOneConfer(titulo:string){
+    const url = `/confer/title/${titulo}`;
+    try {
+      const token = sessionStorage.getItem('tkn');
+      
+      if(!token) return;
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.get(url,config);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error de angular")
+    }
+  }
   //-----------
 }

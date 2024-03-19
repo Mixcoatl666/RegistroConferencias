@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Conferencia } from '../../models/Conference';
 import { ConferenceService } from '../../services/conference.service';
@@ -9,8 +9,8 @@ import { AssistService } from '../../services/assist.service';
   templateUrl: './test-back.component.html',
   styleUrl: './test-back.component.css'
 })
-export class TestBackComponent {
-
+export class TestBackComponent implements OnInit{
+  public conferences:Array<any> = [];
   //-----------
   //  Formulario de conferencias
   conferForm = this.fb.group({
@@ -35,6 +35,9 @@ export class TestBackComponent {
   }
 
   //--------
+  ngOnInit(): void {
+    //this.getConfersDispo();
+  }
   /**
    * Funcion para añadir una conferencia
    */
@@ -67,8 +70,16 @@ export class TestBackComponent {
   /**
    * Funcion para asistir a una conferencia
    */
-  onSubmitAssist(){
+  onSubmitAssist(id:string){
     console.log("Event click active...");
-    this.assistService.assitConference();
+    this.assistService.assitConference(id);
+  }
+  //
+  async getConfersDispo(){
+    console.log("Get confers activated...");
+    let confs;
+    confs = await this.conferenceService.getConfsDisp();
+    this.conferences = confs;
+    console.log(confs)
   }
 }

@@ -71,7 +71,7 @@
 <!-- Fin: Tarjeta de prueba para Añadir conferencia -->
 
 <!-- Inicio: Tarjeta de prueba para Asistir a conferencia -->
-<div class="containerConf" id="assist" >
+<!-- <div class="containerConf" id="assist" >
     <div class="cardConf">
         <div class="imageConf">
             <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
@@ -84,8 +84,33 @@
                 quasi voluptas velit cumque reprehenderit sapiente iusto cupiditate, 
                 dolorem delectus quis.
             </p>
-            <button type="submit" (click)="onSubmitAssist()" >Asistir</button>
+            <button type="submit" (click)="onSubmitAssist('9')" >Asistir</button>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Fin: Tarjeta de prueba para Asistir a conferencia -->
+
+<!-- Inicio: Conferencias -->
+<!-- <div class="containerConfs">
+@for (item of conferences; track $index) {
+<div class="containerConf" id="assist" >
+  <div class="cardConf">
+      <div class="imageConf">
+          <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
+      </div>
+      <div class="contentConf">
+          <h2>{{item.Titulo}}</h2>
+          <p>
+              {{item.Descripcion}}
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              Tempora ex deleniti qui ea corporis odio laudantium maiores omnis laborum,
+              quasi voluptas velit cumque reprehenderit sapiente iusto cupiditate, 
+              dolorem delectus quis.
+          </p>
+          <button type="submit" (click)="onSubmitAssist(item._id)" >Asistir</button>
+      </div>
+  </div>
+</div>
+}
+</div>
+ -->

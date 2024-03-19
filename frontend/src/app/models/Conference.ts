@@ -8,13 +8,14 @@ export class Conferencia{
         HoraInicio:'',
         HoraFin:'',
         Expositor:
-            {
-                Semblanza:'',
-                Foto:'',
-            },
+        {
+            Semblanza:'',
+            Foto:'',
+        },
         CupoTotal:0,
         AsistentesRegistrados:[],
     };
+    Status:boolean = false;
     //---------------
     constructor(titulo:string,descrip:string){
         this.Titulo = titulo;

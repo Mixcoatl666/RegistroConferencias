@@ -26,7 +26,8 @@ const USER_SCHEMA = mongoose.Schema(
                         ref:"usuario"
                     }
                 ]
-        }
+        },
+    Status:{type:Boolean,required:true}
 }
 );
 

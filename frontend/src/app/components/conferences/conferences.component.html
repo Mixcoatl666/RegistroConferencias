@@ -1,0 +1,29 @@
+<div class="logos">
+    <div class="conferences-container logos-slide">
+        
+        @for (item of listConferences; track $index) {
+            <!-- Inicio: Tarjeta de prueba para Asistir a conferencia -->
+          <div class="containerConf" id="assist" >
+            <div class="cardConf logos">
+                <div class="imageConf">
+                    <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
+                </div>
+                <div class="contentConf">
+                    <h2>{{item.Titulo}}</h2>
+                    <p>
+                        {{item.Descripcion}}
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                        Tempora ex deleniti qui ea corporis odio laudantium maiores omnis laborum,
+                        quasi voluptas velit cumque reprehenderit sapiente iusto cupiditate, 
+                        dolorem delectus quis.
+                    </p>
+                    <button type="submit" (click)="onSubmitAssist(item._id)" >Asistir</button>
+                    <button type="submit" (click)="onSubmitGet(item.Titulo)" >Ver Más</button>
+                </div>
+            </div>
+          </div>
+          <!-- Fin: Tarjeta de prueba para Asistir a conferencia -->
+          }
+    
+    </div>
+</div>

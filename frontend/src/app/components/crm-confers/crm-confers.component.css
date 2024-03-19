@@ -1,0 +1,24 @@
+.crm h2 {
+    text-align: center;
+}
+
+.crm p {
+    text-align: center;
+}
+
+.crm__container {
+    display: grid;
+    align-items: center;
+}
+
+.crm__container tr th{
+    text-align: center;
+}
+
+.crm__title {
+    color:black;
+}
+
+.crm p{
+    color: black;
+}

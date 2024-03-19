@@ -5,10 +5,20 @@
 
 .carousel {
     max-width: 800px; /* Define un ancho máximo para el carrusel */
-    margin: 0 auto; /* Centra el carrusel horizontalmente */
+    margin: 4rem auto; /* Centra el carrusel horizontalmente */
 }
 .test{
     background-color: antiquewhite;
     border-radius: 3%;
     box-shadow: 2%;
+}
+
+.header {
+    margin: 3rem auto;
+    min-height: 20rem;
+    background-image: url('../../../assets/hero.jpeg');
+}
+
+.containerj {
+    height: calc(20rem - 30rem);
 }
