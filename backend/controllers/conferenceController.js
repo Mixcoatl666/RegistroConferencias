@@ -37,6 +37,7 @@ const listConfsAdmin = async (req,res) => {
     }
 }
 
+//----Listar todas las conferencias habilitadas
 const listConfsDisp = async (req,res) => {
     try {
         const confs = await Conferencia.find().where('Status').equals(true);
@@ -61,6 +62,16 @@ const switchStatus = async (req,res) => {
     }
 }
 
+//----Modificar conferencias
+const modifConf = async (req,res) => {
+    const { id } = req.params;
+    try {
+        const confer = await Conferencia.findById(id).where('Horario.Expositor._id').equals(req.usuario._id);
+        console.log(confer);
+    } catch (error) {
+        console.log("Error Mio jaja ")
+    }
+}
 
 // Muestra lugares y horarios de una conferencia elegida
 const infoConfer = async (req,res) => {
@@ -106,12 +117,15 @@ const todaysConfs = async (req,res) => {
         res.json({msg:"No se encontraron conferencias"})
     }
 }
+
+
 export {
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
     listConfsDisp,
     switchStatus,
+    modifConf,
     infoConfer,
     todaysConfs,
 };

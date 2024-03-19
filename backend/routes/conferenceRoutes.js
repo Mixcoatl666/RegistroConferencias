@@ -5,6 +5,7 @@ import {
     listConfsAdmin,
     listConfsDisp,
     switchStatus,
+    modifConf,
     infoConfer,
     todaysConfs,
 } from '../controllers/conferenceController.js'
@@ -23,6 +24,7 @@ const ROUTER = express.Router();   //  Para usar los metodos http
 ROUTER.route('/')
         .post(identi,nuevaConf)
         .get(identi,listarConfsExp)
+        .put(identi,modifConf)
 ;
 // rutas adm Listar conferencias para el admin
 ROUTER.route('/adm')
