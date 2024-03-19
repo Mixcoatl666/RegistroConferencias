@@ -17,6 +17,7 @@ import { TstHeaderComponent } from './components/tst-header/tst-header.component
 import { CrmConfersComponent } from './components/crm-confers/crm-confers.component';
 import { ConferencesComponent } from './components/conferences/conferences.component';
 import { DetailConfComponent } from './components/detail-conf/detail-conf.component';
+import { MyConfsComponent } from './components/my-confs/my-confs.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { DetailConfComponent } from './components/detail-conf/detail-conf.compon
     TstHeaderComponent,
     ConferencesComponent,
     DetailConfComponent,
+    MyConfsComponent,
   ],
   imports: [
     BrowserModule,

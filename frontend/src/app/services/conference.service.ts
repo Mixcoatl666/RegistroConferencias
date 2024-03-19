@@ -82,5 +82,28 @@ export class ConferenceService {
       console.log("Error de angular")
     }
   }
+  //
+  async getMyConfers(){
+    try {
+      const token = sessionStorage.getItem('tkn');
+      if(!token) return;
+  
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.get('/confer',config);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error Angular");      
+    }
+  }
+  //
+  async editConf(id:string){
+    const { data } = await clienteAxios.put('/confer');
+  }
   //-----------
 }
