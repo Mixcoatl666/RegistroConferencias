@@ -22,7 +22,8 @@ export class TstHeaderComponent implements OnInit{
   }
 
   logOut(){
-    //this.userService
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 }
 
