@@ -62,5 +62,24 @@ export class ConferenceService {
       console.log("Error angular");
     }
   }
+  // 
+  async getOneConfer(titulo:string){
+    const url = `/confer/title/${titulo}`;
+    try {
+      const token = sessionStorage.getItem('tkn');
+      
+      if(!token) return;
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.get(url,config);
+      console.log(data);
+    } catch (error) {
+      console.log("Error de angular")
+    }
+  }
   //-----------
 }

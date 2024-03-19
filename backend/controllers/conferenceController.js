@@ -86,6 +86,8 @@ const infoConfer = async (req,res) => {
         confer.forEach(conf => {
             //  Seleccionar datos
             filterData = {
+                Expositor:conf.Horario.Expositor,
+                Semblanza:conf.Horario.Expositor.Semblanza,
                 HoraInicio:conf.Horario.HoraInicio,
                 HoraFin:conf.Horario.HoraFin,
                 Lugar: conf.Horario.HoraFin
