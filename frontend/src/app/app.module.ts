@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CreditosComponent } from './components/creditos/creditos.component';
 import { TestBackComponent } from './components/test-back/test-back.component';
 import { TstHeaderComponent } from './components/tst-header/tst-header.component';
+import { CrmConfersComponent } from './components/crm-confers/crm-confers.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { TstHeaderComponent } from './components/tst-header/tst-header.component
     HomeComponent,
     CreditosComponent,
     TestBackComponent,
+    CrmConfersComponent,
     TstHeaderComponent,
   ],
   imports: [

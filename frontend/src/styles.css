@@ -21,7 +21,7 @@ html {
 
 body {
     font-family: var(--fuentePrincipal);
-    font-size: 1.6rem; /*16 px*/
+    font-size: 1.9rem; /*16 px*/
     line-height: 1.8; /*interlineado*/
 }
 
@@ -51,7 +51,7 @@ img {
     display: block;
 }
 
-.container {
+.containerj {
     max-width: 120rem;
     margin: 0 auto;
     width: 90%;
@@ -62,7 +62,7 @@ img {
     background-color: var(--blanco);
     border: 1px solid var(--gris);
     padding: .5rem 2rem;
-    transition: background-color 4s;
+    transition: background-color 3s;
 }
 
 btn:hover {

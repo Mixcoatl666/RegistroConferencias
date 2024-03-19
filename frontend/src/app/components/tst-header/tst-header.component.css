@@ -1,0 +1,138 @@
+.header {
+    min-height: 60rem;
+    background-image: url('../../../assets/hero.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    margin-right: 1rem;
+}
+
+/* @media (min-width: 768px){
+    .header {
+        padding: 2rem 0;
+    }
+} */
+
+.content-header {
+    display: flex;
+    flex-direction: column;
+    height: calc(60rem - 4rem);
+    justify-content: space-between;
+    color: var(--blanco);
+}
+
+.site-name {
+    font-weight: 300;
+    text-align: center;
+    font-size: 3rem;
+}
+
+@media (min-width:768px) {
+    .site-name {
+        font-size: 5rem;
+    }
+}
+
+.site-name span {
+    font-weight: 900;
+}
+
+@media (min-width:768px) {
+    .bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width:768px){
+    .log{
+        align-items: flex-end;
+    }
+}
+
+.header-login {
+    display: flex;
+}
+ 
+.header-login::before {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    background-image: url('../../../assets/usuario.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.header a {
+    color:var(--blanco);
+    font-weight: 2.3rem;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (min-width:768px){
+    .navbar {
+        flex-direction: row;
+    }
+}
+
+.navbar a {
+    padding: .6rem;
+    transition: background-color 300ms;
+    width: 100%;
+    text-align: center;
+}
+
+@media (min-width:768px) {
+    .navbar a {
+        padding: 1rem 2rem;
+        width: auto;
+    }
+}
+
+.navbar a:hover {
+    background-color: rgb(255 255 255 /.5);
+} 
+
+.slogan{
+    text-align: center;
+}
+
+@media (min-width:768px){
+    .slogan{
+        text-align: right;
+    }
+}
+
+.slogan h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+@media (min-width:768px){
+    .slogan h1{
+        font-size: 5rem;
+    }
+}
+
+.slogan p{
+    margin: 0;
+    line-height: 1;
+}
