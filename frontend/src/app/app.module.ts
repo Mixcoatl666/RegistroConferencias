@@ -13,7 +13,7 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { HomeComponent } from './components/home/home.component';
 import { CreditosComponent } from './components/creditos/creditos.component';
 import { TestBackComponent } from './components/test-back/test-back.component';
-import { CrmConfersComponent } from './components/crm-confers/crm-confers.component';
+import { TstHeaderComponent } from './components/tst-header/tst-header.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { CrmConfersComponent } from './components/crm-confers/crm-confers.compon
     HomeComponent,
     CreditosComponent,
     TestBackComponent,
-    CrmConfersComponent,
+    TstHeaderComponent,
   ],
   imports: [
     BrowserModule,

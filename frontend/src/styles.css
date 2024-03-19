@@ -1,2 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+
+:root{
+    --blanco:#FFF;
+    --negro:#111111;
+    --gris:#343A40;
+
+    --fuentePrincipal: "Happy Monkey", system-ui;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem; /*16 px*/
+    line-height: 1.8; /*interlineado*/
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+    margin: 1rem 0 4rem 0;
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+h2{
+    font-size: 5.8rem;
+}
+
+h3{
+    font-size: 5rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.btn {
+    color: var(--gris);
+    background-color: var(--blanco);
+    border: 1px solid var(--gris);
+    padding: .5rem 2rem;
+    transition: background-color 4s;
+}
+
+btn:hover {
+    background-color: var(--gris);
+    color: var(--blanco);
+}
+
+/** utilidades **/
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
