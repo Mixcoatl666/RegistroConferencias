@@ -29,9 +29,9 @@ const corsOptions = {
         };
     }
 };
-APP.use(cors(corsOptions));
 
 //----------------- routing
+APP.use(cors(corsOptions));
 //  Para cada solicitud al path:'localhost:4000/' 
 APP.use('/app/user',userRoutes);    // para las rutas de usuario
 APP.use('/app/confer',conferenceRoutes);    //  para las rutas de conferencia

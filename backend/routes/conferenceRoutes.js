@@ -21,6 +21,15 @@ const ROUTER = express.Router();   //  Para usar los metodos http
  * ej. router.get('/',usuarios);
  * ej. router.post('/',crearUsuario);
 */
+// listar confs aprovadas
+ROUTER.route('/pbl')
+        .get(listConfsDisp)
+;
+// rutas adm Listar conferencias para el admin
+ROUTER.route('/adm')
+        .get(listConfsAdmin)
+        .put(switchStatus)
+;
 //  Registrar, listar conferencias por expositor
 ROUTER.route('/')
         .post(identi,nuevaConf)
@@ -29,15 +38,6 @@ ROUTER.route('/')
 ROUTER.route('/:id')
         .get(identi,detailConf)
         .put(identi,modifConf)
-;
-// rutas adm Listar conferencias para el admin
-ROUTER.route('/adm')
-        .get(listConfsAdmin)
-        .put(switchStatus)
-;
-// listar confs aprovadas
-ROUTER.route('/pbl')
-        .get(listConfsDisp)
 ;
 // obtener confeencia por titulo
 ROUTER.route('/title/:titulo')

@@ -27,10 +27,11 @@ const listarConfsExp = async (req,res) => {
 
 //----Listar todas las conferencias
 const listConfsAdmin = async (req,res) => {
+    console.log('List metd');
     try {
         const confers = await Conferencia.find();
         if(confers.length > 0){
-            res.status(200).json(confers);
+            res.json(confers);
         }
     } catch (error) {
         res.json({msg:"No hay conferencias"})

@@ -34,7 +34,9 @@ export class ConferenceService {
   }
   //
   async listConfersAdm(){
+    console.log('empieza try..')
     try {
+      
       const { data } = await clienteAxios.get('/confer/adm');
       console.log(data);
       return data;
