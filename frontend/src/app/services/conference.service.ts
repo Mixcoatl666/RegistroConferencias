@@ -141,5 +141,14 @@ export class ConferenceService {
       console.log("Error en Angular")
     }
   }
+  //
+  async deleteConf(id:string){
+    try {
+      const {data} = await clienteAxios.delete(`/confer/${id}`);
+      console.log(data);
+    } catch (error) {
+      console.log("Error Angular");
+    }
+  }
   //-----------
 }

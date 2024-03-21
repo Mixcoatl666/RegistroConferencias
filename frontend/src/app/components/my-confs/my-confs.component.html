@@ -27,7 +27,11 @@
                                 class="text-blue-600 hover:text-blue-700 uppercase font-bold text-xs" 
                                 (click)="getDetailConf(conf._id)"
                             >Editar</button>
-                            <button type="button" class="text-red-600 hover:text-red-700 uppercase font-bold text-xs" >Eliminar</button>
+                            <button 
+                                type="button" 
+                                class="text-red-600 hover:text-red-700 uppercase font-bold text-xs" 
+                                (click)="deleteConfer(conf._id)"
+                            >Eliminar</button>
                         </td>
                     </tr>
                 }

@@ -18,11 +18,13 @@ export class TstHeaderComponent implements OnInit{
   }
   //------------
   ngOnInit(): void {
-    this.loged = sessionStorage.getItem('tkn') ? true : false ;
+    this.loged = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('tkn')) ? true : false ;
   }
 
   logOut(){
     //this.userService
+    this.userService.logout();
+    this.router.navigate(['/login']);
   }
 }
 

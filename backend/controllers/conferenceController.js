@@ -146,6 +146,17 @@ const todaysConfs = async (req,res) => {
     }
 }
 
+//-----Eliminar proyecto
+const deleteOneConf = async (req,res) => {
+    try {
+        const { id } = req.params;
+        const confer = await Conferencia.findById(id);
+        await confer.deleteOne();
+        res.json({msg:"Proyecto Eliminado"});
+    } catch (error) {
+        res.json({msg:"Proyecto No Eliminado"});
+    }
+}
 
 export {
     nuevaConf,
@@ -157,4 +168,5 @@ export {
     modifConf,
     infoConfer,
     todaysConfs,
+    deleteOneConf,
 };

@@ -29,6 +29,10 @@ export class MyConfsComponent implements OnInit{
     //const data = this.conferService.detalConf(id);
     this.router.navigate([`/confer/${id}`]);
   }
+
+  deleteConfer(id:string){
+    this.conferService.deleteConf(id);
+  }
   
   
 }

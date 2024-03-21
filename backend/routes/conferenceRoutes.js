@@ -9,6 +9,7 @@ import {
     modifConf,
     infoConfer,
     todaysConfs,
+    deleteOneConf
 } from '../controllers/conferenceController.js'
 import identi from '../middlewares/identi.js';
 
@@ -34,10 +35,11 @@ ROUTER.route('/adm')
 ROUTER.route('/')
         .post(identi,nuevaConf)
         .get(identi,listarConfsExp)
-;
+        ;
 ROUTER.route('/:id')
         .get(identi,detailConf)
         .put(identi,modifConf)
+        .delete(deleteOneConf)
 ;
 // obtener confeencia por titulo
 ROUTER.route('/title/:titulo')
