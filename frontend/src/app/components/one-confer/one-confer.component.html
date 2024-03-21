@@ -1,0 +1,70 @@
+<!-- Inicio: Tarjeta de prueba para Añadir conferencia -->
+<div class="container mt-5 mb-5" id="addConfer" >
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center" style="background-color: #f8f8f8;">
+                <h5>
+                    Ingresar al Sistema
+                </h5>
+            </div>
+          <div class="card-body">
+            <!-- formulario -->
+            <form [formGroup]="conferForm" (ngSubmit)="onSubmitConfer()" >
+              <!-- Titulo -->
+              <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input type="text" class="form-control" formControlName="titulo" placeholder="Titulo">
+                <!-- <small *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="form-text text-danger">
+                  <div *ngIf="nombre.hasError('required')">Ingresa tu Nombre</div>
+                </small> -->
+              </div>
+              <!-- Descripcion -->
+              <div class="form-group mt-3">
+                <label for="descrip">Descripción</label>
+                <input type="text" class="form-control" formControlName="descrip" placeholder="Descripcion">
+              </div>
+              <!-- Lugar -->
+              <div class="form-group mt-3">
+                <label for="lugar">Lugar</label>
+                <input type="text" class="form-control" formControlName="lugar" placeholder="Lugar">
+              </div>
+              <!-- Fecha -->
+              <!-- <div class="form-group mt-3">
+                <label for="fecha">Fecha</label>
+                <input type="date" class="form-control" formControlName="fecha" placeholder="Fecha">
+              </div> -->
+              <!-- H Inicio -->
+              <div class="form-group mt-3">
+                <label for="horaInicio">Hora Inicio</label>
+                <input type="time" class="form-control" formControlName="horaInicio" >
+              </div>
+              <!-- H Fin -->
+              <div class="form-group mt-3">
+                <label for="horaFin|">Hora Finalización</label>
+                <input type="time" class="form-control" formControlName="horaFin" >
+              </div>
+              <!-- Ex. Semblanza -->
+              <div class="form-group mt-3">
+                <label for="semblanza" >Pequeña Semblanza</label>
+                <input type="text" class="form-control" formControlName="semblanza" >
+              </div>
+              <!-- Ex. Foto -->
+          <!--     <div class="form-group mt-3">
+                <label for="foto">Foto</label>
+                <input type="text" class="form-control" formControlName="foto" placeholder="URL Foto">
+              </div> -->
+              <!-- Cnf. Cupo total -->
+              <div class="form-group mt-3">
+                <label for="cupo" >Cupo Total</label>
+                <input type="text" class="form-control" formControlName="cupo" placeholder="Cupo Total">
+              </div>
+              
+              <!-- submit btn -->
+              <button type="submit" class="btn btn-primary mt-3" >Registrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

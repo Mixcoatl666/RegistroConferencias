@@ -37,6 +37,17 @@ const listConfsAdmin = async (req,res) => {
     }
 }
 
+const detailConf = async (req,res) => {
+    const { id } = req.params;
+    try {
+        const conf = await Conferencia.findById(id).where('Horario.Expositor._id').equals(req.usuario._id);
+        res.json(conf);
+        console.log(conf);
+    } catch (error) {
+        console.log("No se encontraro conferencia")
+    }
+}
+
 //----Listar todas las conferencias habilitadas
 const listConfsDisp = async (req,res) => {
     try {
@@ -65,9 +76,22 @@ const switchStatus = async (req,res) => {
 //----Modificar conferencias
 const modifConf = async (req,res) => {
     const { id } = req.params;
+    console.log(req);
     try {
-        const confer = await Conferencia.findById(id).where('Horario.Expositor._id').equals(req.usuario._id);
+        const confer = await Conferencia.findById(id);
         console.log(confer);
+        confer.Titulo = req.body.titulo || confer.Titulo;
+        confer.Descripcion = req.body.descrip || confer.Descripcion;
+        confer.Horario.Lugar = req.body.lugar || confer.Horario.Lugar;
+        confer.Horario.Fecha = req.body.fecha || confer.Horario.Fecha;
+        confer.Horario.HoraInicio = req.body.horaInicio || confer.Horario.HoraInicio;
+        confer.Horario.HoraFin = req.body.horaFin || confer.Horario.HoraFin;
+        confer.Horario.CupoTotal = req.body.cupoTotal || confer.Horario.CupoTotal;
+        confer.Horario.Expositor.Semblanza = req.body.semblanza || confer.Expositor.Semblanza;
+        const editedConfe = await confer.save();
+        console.log(confer);
+        console.log(editedConfe);
+        //return res.json({msg:"Actualizacion exitosa"})
     } catch (error) {
         console.log("Error Mio jaja ")
     }
@@ -126,6 +150,7 @@ export {
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
+    detailConf,
     listConfsDisp,
     switchStatus,
     modifConf,

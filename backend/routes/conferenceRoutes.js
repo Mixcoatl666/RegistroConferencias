@@ -3,6 +3,7 @@ import {
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
+    detailConf,
     listConfsDisp,
     switchStatus,
     modifConf,
@@ -24,6 +25,9 @@ const ROUTER = express.Router();   //  Para usar los metodos http
 ROUTER.route('/')
         .post(identi,nuevaConf)
         .get(identi,listarConfsExp)
+;
+ROUTER.route('/:id')
+        .get(identi,detailConf)
         .put(identi,modifConf)
 ;
 // rutas adm Listar conferencias para el admin

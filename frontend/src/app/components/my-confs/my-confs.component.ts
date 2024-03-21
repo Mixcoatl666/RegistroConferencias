@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ConferenceService } from '../../services/conference.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-confs',
@@ -9,7 +10,9 @@ import { ConferenceService } from '../../services/conference.service';
 export class MyConfsComponent implements OnInit{
   public conferences:Array<any> = new Array();
   constructor(
-    private conferService:ConferenceService
+    private conferService:ConferenceService,
+    private route:ActivatedRoute,
+    private router:Router
   ){
 
   }
@@ -22,4 +25,10 @@ export class MyConfsComponent implements OnInit{
     this.conferences = data;
   }
 
+  getDetailConf(id:string){
+    //const data = this.conferService.detalConf(id);
+    this.router.navigate([`/confer/${id}`]);
+  }
+  
+  
 }

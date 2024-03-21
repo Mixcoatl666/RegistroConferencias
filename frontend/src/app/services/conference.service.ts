@@ -102,8 +102,42 @@ export class ConferenceService {
     }
   }
   //
-  async editConf(id:string){
-    const { data } = await clienteAxios.put('/confer');
+  async detalConf(id:string){
+    try {
+      const token = sessionStorage.getItem('tkn');
+      
+      if(!token) return;
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.get(`/confer/${id}`,config);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error en angular");
+    }
+  }
+  //
+  async editConf(id:string,confer:any){
+    try {
+      const token = sessionStorage.getItem('tkn');
+      
+      if(!token) return;
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.put(`/confer/${id}`,confer,config);
+      console.log(data);
+      return data;
+    }catch(error){
+      console.log("Error en Angular")
+    }
   }
   //-----------
 }

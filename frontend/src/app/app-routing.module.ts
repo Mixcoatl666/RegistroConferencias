@@ -11,6 +11,7 @@ import { AdministradoresComponent } from './components/administradores/administr
 import { TestBackComponent } from './components/test-back/test-back.component';
 import { DetailConfComponent } from './components/detail-conf/detail-conf.component';
 import { MyConfsComponent } from './components/my-confs/my-confs.component';
+import { OneConferComponent } from './components/one-confer/one-confer.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'confer/add', component: TestBackComponent, canActivate:[authGuard]},
   {path: 'myconfs', component: MyConfsComponent, canActivate:[authGuard]},
   {path: 'confer/details/:title', component: DetailConfComponent},
+  {path: 'confer/:id', component:OneConferComponent },
   {path: 'creditos', component: CreditosComponent},
   {path: '', redirectTo: 'login', pathMatch:'full'}
 ];
