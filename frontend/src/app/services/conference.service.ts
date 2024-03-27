@@ -29,7 +29,7 @@ export class ConferenceService {
       const { data } = await clienteAxios.post('/confer',conference,config);
       console.log(data);
     }catch(error){
-      console.log("Error en angular");
+      console.log("Faltan Datos");
     }
   }
   //
@@ -68,16 +68,7 @@ export class ConferenceService {
   async getOneConfer(titulo:string){
     const url = `/confer/title/${titulo}`;
     try {
-      const token = sessionStorage.getItem('tkn');
-      
-      if(!token) return;
-      const config = {
-        headers:{
-          "Content-Type":"application/json",
-          Authorization: `Bearer ${token}`
-        }
-      }
-      const { data } = await clienteAxios.get(url,config);
+      const { data } = await clienteAxios.get(url);
       console.log(data);
       return data;
     } catch (error) {

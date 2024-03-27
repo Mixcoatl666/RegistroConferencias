@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-5">
+<!-- <div class="containerj mt-5 mb-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card w-70">
@@ -30,5 +30,50 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <!-- login -->
+  <div class="login">
+    <!-- container login -->
+    <div class="login__container" >
+      <!-- title -->
+      <div class="login__container-title" >
+        <h1>
+            Ingresa al Sistema
+        </h1>
+      </div>
+      <!-- content -->
+      <div class="login__container-content" >
+        <!-- form -->
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <!-- email -->
+          <div class="login-content">
+            <input id="email" type="email" formControlName="email" placeholder=" ">
+            <label for="email">Email</label>
+          </div>
+          <!-- error msgs  -->
+          <small *ngIf="email.invalid && (email.dirty || email.touched)" >
+            <p class="msg-err" *ngIf="email.hasError('required')">Ingresa Email</p>
+            <p class="msg-err" *ngIf="email.hasError('email')">Email Incorrecto</p>
+          </small>
+          <!-- pass -->
+          <div class="login-content">
+            <input id="password" type="password" formControlName="password" placeholder=" ">
+            <label for="password" >Contraseña</label>
+          </div>
+          <!-- btn sbmt -->
+          <div class="login__btn">
+            <button type="submit" >Ingresar</button>
+          </div>
+        </form>
+      </div>
+      <!-- link register -->
+      <div class="register__link">
+        <p class="register__txt">Crea una nueva cuenta</p>
+        <div class="login__btn">
+          <button class="register__btn">Ir</button>
+        </div>
+      </div>
+    </div>
   </div>
+  
   

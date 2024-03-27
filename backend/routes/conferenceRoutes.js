@@ -31,19 +31,19 @@ ROUTER.route('/adm')
         .get(listConfsAdmin)
         .put(switchStatus)
 ;
+// obtener confeencia por titulo
+ROUTER.route('/title/:titulo')
+        .get(infoConfer)
+;
 //  Registrar, listar conferencias por expositor
 ROUTER.route('/')
         .post(identi,nuevaConf)
         .get(identi,listarConfsExp)
-        ;
+;
 ROUTER.route('/:id')
         .get(identi,detailConf)
         .put(identi,modifConf)
         .delete(deleteOneConf)
-;
-// obtener confeencia por titulo
-ROUTER.route('/title/:titulo')
-        .get(infoConfer)
 ;
 
 ROUTER.get('/date/:fecha',todaysConfs);

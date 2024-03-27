@@ -14,16 +14,50 @@ import { MyConfsComponent } from './components/my-confs/my-confs.component';
 import { OneConferComponent } from './components/one-confer/one-confer.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'home', component: HomeComponent, canActivate:[authGuard]},
-  {path: 'administradores', component: AdministradoresComponent,canActivate:[authGuard]},
-  {path: 'confer/add', component: TestBackComponent, canActivate:[authGuard]},
-  {path: 'myconfs', component: MyConfsComponent, canActivate:[authGuard]},
-  {path: 'confer/details/:title', component: DetailConfComponent},
-  {path: 'confer/:id', component:OneConferComponent },
-  {path: 'creditos', component: CreditosComponent},
-  {path: '', redirectTo: 'login', pathMatch:'full'}
+  {
+    path: 'login', 
+    component: LoginComponent
+  },
+  {
+    path: 'register', 
+    component: RegisterComponent
+  },
+  {
+    path: 'home', 
+    component: HomeComponent, 
+    title:'Home'
+  },
+  {
+    path: 'confer/details/:title', 
+    component: DetailConfComponent
+  },
+  {
+    path: 'administradores', 
+    component: AdministradoresComponent,
+    canActivate:[authGuard],
+    data:{roles:["admin"]}
+  },
+  {
+    path: 'confer/add', 
+    component: TestBackComponent, 
+    canActivate:[authGuard],
+    data:{roles:["conf"]}
+  },
+  {
+    path: 'myconfs', 
+    component: MyConfsComponent, 
+    canActivate:[authGuard],
+    data:{roles:["conf"]}
+  },
+  {
+    path: 'confer/:id', 
+    component:OneConferComponent 
+  },
+  {
+    path: 'creditos', 
+    component: CreditosComponent
+  },
+  {path: '', redirectTo: '/login', pathMatch:'full'}
 ];
 
 @NgModule({

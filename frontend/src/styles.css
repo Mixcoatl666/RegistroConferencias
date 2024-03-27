@@ -6,6 +6,11 @@
     --blanco:#FFF;
     --negro:#111111;
     --gris:#343A40;
+    --darkBlue:#1C1B4D;
+    --pink:#B80E65;
+    --celest:#1791B1; 
+    --mainFilter: rgba(255, 255, 255, 0.332);
+    --secondFilter: rgba(238, 23, 170, 0.332);
 
     --fuentePrincipal: "Happy Monkey", system-ui;
 }
