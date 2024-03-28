@@ -38,7 +38,7 @@ export class ConferencesComponent implements OnInit{
     this.assistSerice.assitConference(id);
   }
   onSubmitGet(title:string){
-    this.router.navigate([`/confer/details/${title}`]);
+    this.router.navigate([`/auth/confer/details/${title}`]);
     this.confersService.getOneConfer(title);
   }
 }

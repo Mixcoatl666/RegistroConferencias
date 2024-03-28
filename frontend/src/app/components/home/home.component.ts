@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -9,11 +9,7 @@ import { UserService } from '../../services/user.service';
 })
 export class HomeComponent{
 
+
   constructor(private userService: UserService, private router: Router){}
 
-
-  logout(){
-    this.userService.logout()
-    this.router.navigate(['/login'])
-  }
 }

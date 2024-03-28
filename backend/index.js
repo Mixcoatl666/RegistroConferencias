@@ -22,13 +22,16 @@ const corsOptions = {
         };
     }
 };
-APP.use(cors(corsOptions));
 
-APP.use('/app/user', userRoutes);
-APP.use('/app/confer', conferenceRoutes);
-APP.use('/app/assist', assistRoutes);
-APP.use('/app/statist', statistRoutes);
+//----------------- routing
+APP.use(cors(corsOptions));
+//  Para cada solicitud al path:'localhost:4000/' 
+APP.use('/app/user',userRoutes);    // para las rutas de usuario
+APP.use('/app/confer',conferenceRoutes);    //  para las rutas de conferencia
+APP.use('/app/assist',assistRoutes);    //  rutas para asistir a una conferencia
+APP.use('/app/statist',statistRoutes);    //  rutas para las estadisticas
 APP.use('/app/images', imageRoutes);
+
 
 const PORT = process.env.PORT || 4000;
 APP.listen(PORT, () => {

@@ -26,7 +26,7 @@ export class CrmConfersComponent {
   }
 
   deleteConfer(id:string){
-
+    this.conferenceService.deleteConf(id);
   }
 
 } 

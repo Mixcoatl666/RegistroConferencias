@@ -1,3 +1,6 @@
+.crm {
+    background-color: var(--blackFilter);
+}
 .crm h2 {
     text-align: center;
 }

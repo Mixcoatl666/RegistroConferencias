@@ -1,18 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6"> <!-- Alinear el grid a la izquierda en pantallas medianas o más grandes -->
-      <!-- Grid -->
-      <div class="containerText ">
-        <div class="row row-cols-auto">
-          <div class="container-fluid mt-3">
-            <h3><strong>Carousel Example</strong></h3>
-            <p>The following example shows how to create a basic carousel with indicators and controls.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-              Repudiandae aspernatur, voluptatibus inventore, blanditiis ratione velit facere voluptate quo deleniti quam, 
-              obcaecati expedita mollitia modi soluta temporibus provident suscipit quae nihil.
-            </p>
-          </div>
-        </div>
+@defer (on idle) {
+
+
+<div class="container-fluid mt-3">
+  <h3>Carousel Example</h3>
+  <p>The following example shows how to create a basic carousel with indicators and controls.</p>
+</div>
+<!-- Carousel -->
+<div id="demo" class="carousel slide mt-5" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://www.w3schools.com/bootstrap5/la.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+      <div class="carousel-caption">
+        <h3>Los Angeles</h3>
+        <p>We had such a great time in LA!</p>
       </div>
     </div>
     <div class="col-md-6"> <!-- Alinear el carrusel a la derecha en pantallas medianas o más grandes -->
@@ -63,7 +72,6 @@
   </div>
 </div>
 
-@defer (on viewport) {
   <!-- Listar conferencias -->
 <section class="header" >
   <div class="containerj content-header">
@@ -72,14 +80,16 @@
         <p>Registra tu conferencia ahora y espera la aprovacion</p>
       </div>
   </div>
+  
 </section>
-  <!-- Lista conferencias disponibles -->
-  <app-conferences></app-conferences>
+  @defer (on viewport) {
+    <!-- Lista conferencias disponibles -->
+    <app-conferences></app-conferences>
+  }@placeholder {
+    <p>loading</p>
+  }
+
 } @placeholder {
   <p>Loading...</p>
 }
 
-<!--   <div class="test">
-    <app-tst-header></app-tst-header>
-    <app-test-back/>
-  </div> -->

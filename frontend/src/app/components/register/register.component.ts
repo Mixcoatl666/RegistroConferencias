@@ -15,6 +15,7 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     nombre: ['', [Validators.required]],
     sexo: ['', [Validators.required]], // Agregar el campo de sexo al formulario
+    rol:['',Validators.required],
     email: ['', [Validators.required, Validators.email]],
     pass: ['', [Validators.required]],
     confirmPass: ['', [Validators.required, this.passwordMatchValidator()]]
@@ -30,9 +31,10 @@ export class RegisterComponent {
   onSubmit(){
     //this.usuarioService.createUsuario(usuario)
     try{
-      const {nombre,sexo,email,pass} = this.registerForm.value;
-      const nwUSer = new Usuario(nombre!,sexo!,email!,pass!);
+      const {nombre,sexo,email,pass,rol} = this.registerForm.value;
+      const nwUSer = new Usuario(nombre!,sexo!,email!,pass!,rol!);
       this.userService.createUser(nwUSer);
+      this.router.navigate(['/user/login']);
     }catch(error){
       console.log(error);
     };
@@ -77,5 +79,9 @@ export class RegisterComponent {
 
       return null;
     };
+  }
+
+  redirectTo(url:string){
+    this.router.navigate([`/${url}`]);
   }
 }

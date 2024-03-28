@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Conferencia } from '../../models/Conference';
 import { ConferenceService } from '../../services/conference.service';
 import { AssistService } from '../../services/assist.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-test-back',
@@ -29,7 +30,8 @@ export class TestBackComponent implements OnInit{
   constructor(
     private fb : FormBuilder,
     private conferenceService:ConferenceService,
-    private assistService:AssistService
+    private assistService:AssistService,
+    private router:Router
   ){
 
   }
@@ -66,6 +68,7 @@ export class TestBackComponent implements OnInit{
     
     console.log(nwConfer)
     this.conferenceService.addConference(nwConfer);
+    this.router.navigate(['/auth/myconfs']);
   }
   /**
    * Funcion para asistir a una conferencia

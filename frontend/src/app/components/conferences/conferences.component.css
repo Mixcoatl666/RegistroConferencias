@@ -124,12 +124,13 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
   }
-  .logos {
 
-  }
+  .logos {
+    overflow-x: clip;
+    }
   /* .logos {
     overflow: hidden;
     padding: 60px 0;

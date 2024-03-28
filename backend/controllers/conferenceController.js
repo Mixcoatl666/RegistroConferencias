@@ -27,13 +27,25 @@ const listarConfsExp = async (req,res) => {
 
 //----Listar todas las conferencias
 const listConfsAdmin = async (req,res) => {
+    console.log('List metd');
     try {
         const confers = await Conferencia.find();
         if(confers.length > 0){
-            res.status(200).json(confers);
+            res.json(confers);
         }
     } catch (error) {
         res.json({msg:"No hay conferencias"})
+    }
+}
+
+const detailConf = async (req,res) => {
+    const { id } = req.params;
+    try {
+        const conf = await Conferencia.findById(id).where('Horario.Expositor._id').equals(req.usuario._id);
+        res.json(conf);
+        console.log(conf);
+    } catch (error) {
+        console.log("No se encontraro conferencia")
     }
 }
 
@@ -65,9 +77,22 @@ const switchStatus = async (req,res) => {
 //----Modificar conferencias
 const modifConf = async (req,res) => {
     const { id } = req.params;
+    console.log(req);
     try {
-        const confer = await Conferencia.findById(id).where('Horario.Expositor._id').equals(req.usuario._id);
+        const confer = await Conferencia.findById(id);
         console.log(confer);
+        confer.Titulo = req.body.titulo || confer.Titulo;
+        confer.Descripcion = req.body.descrip || confer.Descripcion;
+        confer.Horario.Lugar = req.body.lugar || confer.Horario.Lugar;
+        confer.Horario.Fecha = req.body.fecha || confer.Horario.Fecha;
+        confer.Horario.HoraInicio = req.body.horaInicio || confer.Horario.HoraInicio;
+        confer.Horario.HoraFin = req.body.horaFin || confer.Horario.HoraFin;
+        confer.Horario.CupoTotal = req.body.cupoTotal || confer.Horario.CupoTotal;
+        confer.Horario.Expositor.Semblanza = req.body.semblanza || confer.Expositor.Semblanza;
+        const editedConfe = await confer.save();
+        console.log(confer);
+        console.log(editedConfe);
+        //return res.json({msg:"Actualizacion exitosa"})
     } catch (error) {
         console.log("Error Mio jaja ")
     }
@@ -86,7 +111,8 @@ const infoConfer = async (req,res) => {
         confer.forEach(conf => {
             //  Seleccionar datos
             filterData = {
-                Expositor:conf.Horario.Expositor,
+                id:conf._id,
+                Expositor:conf.Horario.Expositor._id,
                 Semblanza:conf.Horario.Expositor.Semblanza,
                 HoraInicio:conf.Horario.HoraInicio,
                 HoraFin:conf.Horario.HoraFin,
@@ -120,14 +146,27 @@ const todaysConfs = async (req,res) => {
     }
 }
 
+//-----Eliminar proyecto
+const deleteOneConf = async (req,res) => {
+    try {
+        const { id } = req.params;
+        const confer = await Conferencia.findById(id);
+        await confer.deleteOne();
+        res.json({msg:"Proyecto Eliminado"});
+    } catch (error) {
+        res.json({msg:"Proyecto No Eliminado"});
+    }
+}
 
 export {
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
+    detailConf,
     listConfsDisp,
     switchStatus,
     modifConf,
     infoConfer,
     todaysConfs,
+    deleteOneConf,
 };

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, input, computed, signal } from '@angular/core';
+import { jwtDecode } from "jwt-decode";
 import { clienteAxios } from '../helpers/clienteAxios';
 import { Usuario } from '../models/Usuario';
 
@@ -7,7 +8,15 @@ import { Usuario } from '../models/Usuario';
 })
 export class UserService {
   //--------------
-  
+  /*public perfil = input.required<any>();
+  public infPer = computed(()=>{
+    const {infoPer} = this.perfil();
+    return Object.values(infoPer);
+  });*/
+  private user = signal<any>(undefined);
+  private isLoged = signal<boolean>(false);
+  public userComputed = computed(()=> this.user());
+  public isLogedComputed = computed(()=> this.isLoged());
   //--------------
   constructor() { 
   
@@ -32,22 +41,30 @@ export class UserService {
       //console.log(data);
       //console.log('storage');
       sessionStorage.setItem('tkn',data.lgUser.token);
-      sessionStorage.setItem('rol', data.lgUser.rol);
+      //sessionStorage.setItem('rol', data.lgUser.rol);
+      this.isLoged.set(true);
+      return data;
     } catch (error) {
-      console.log("Error angular");
+      this.isLoged.set(false);
+      console.log("Datos incorrectos");
     }
   }
   
   logout() {
     sessionStorage.removeItem('tkn');
-    sessionStorage.removeItem('rol');
+    this.isLoged.set(false);
   }
 
-  isLoggedIn(): boolean {
-    return !!sessionStorage.getItem('tkn');
+  getRole(){
+    try {
+      const token = sessionStorage.getItem('tkn')!;
+      const decode:any  = jwtDecode(token);
+      this.user.set(decode.rol);
+      this.isLoged.set(true);
+      console.log(this.user());
+    } catch (error) {
+      this.isLoged.set(false);
+      this.user.set(undefined);
+    }
   }
-
-  getRole(): string | null {
-    return sessionStorage.getItem('rol');
-  }
-}3
+}
