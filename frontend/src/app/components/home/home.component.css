@@ -1,10 +1,31 @@
 .carousel-inner .carousel-item img {
     width: 100%; /* Ajusta el ancho de las imágenes al 100% del contenedor */
     height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    filter: brightness(0.6);
+    object-fit: cover;
 }
 
 .carousel {
     max-width: 800px; /* Define un ancho máximo para el carrusel */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+}
+
+.containerText{
+    margin-top: 10%;
+    background-color: rgb(208, 208, 208);
+    width: 100%;
+    text-align: center;
+}
+
+.containerText h3 {
+    margin-top: 10%;
+}
+
+
+
+.btn {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: floralwhite;
     margin: 4rem auto; /* Centra el carrusel horizontalmente */
 }
 .test{
