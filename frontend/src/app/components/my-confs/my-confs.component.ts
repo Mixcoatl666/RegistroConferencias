@@ -27,7 +27,7 @@ export class MyConfsComponent implements OnInit{
 
   getDetailConf(id:string){
     //const data = this.conferService.detalConf(id);
-    this.router.navigate([`/confer/${id}`]);
+    this.router.navigate([`/auth/confer/${id}`]);
   }
 
   deleteConfer(id:string){

@@ -1,5 +1,5 @@
-<!-- Header -->
-<app-tst-header />
+@defer (on idle) {
+
 
 <div class="container-fluid mt-3">
   <h3>Carousel Example</h3>
@@ -48,7 +48,6 @@
   </button>
 </div>
 
-@defer (on viewport) {
   <!-- Listar conferencias -->
 <section class="header" >
   <div class="containerj content-header">
@@ -59,17 +58,14 @@
   </div>
   
 </section>
-  <!-- Lista conferencias disponibles -->
-  <app-conferences></app-conferences>
+  @defer (on viewport) {
+    <!-- Lista conferencias disponibles -->
+    <app-conferences></app-conferences>
+  }@placeholder {
+    <p>loading</p>
+  }
+
 } @placeholder {
   <p>Loading...</p>
 }
 
-<!--   <div class="test">
-    <app-tst-header></app-tst-header>
-    <app-test-back/>
-  </div> -->
-
-
-  <!-- footer -->
-<app-footer></app-footer>

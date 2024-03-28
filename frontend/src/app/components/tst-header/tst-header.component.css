@@ -1,12 +1,14 @@
 .header {
     min-height: 40rem;
     /* background-image: url('../../../assets/hero.jpeg'); */
-    background-color: rgba(12, 107, 232, 0.5);
+    background-color: var(--blackFilter);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     padding: 5rem 0;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
+    margin: 0;
+    opacity: .9;
 }
 
 .navbar a{

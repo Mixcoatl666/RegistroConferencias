@@ -10,16 +10,17 @@
                 @if (logedComputed()) {
                     <a class="header-login" (click)="logOut()" >Logout</a>
                 }@else{
-                    <a class="header-login" [routerLink]="['/login']">Login</a>
+                    <a class="header-login" [routerLink]="['/user/login']">Login</a>
                 }
                 <nav class="navbar">
-                    <a [routerLink]="['/home']">Home</a>
-                    @if (roleComputed() === 'confer') {
-                        <a [routerLink]="['/myconfs']">Mis Conferencias</a>
-                        <a [routerLink]="['/confer/add']">Añadir Conferencia</a>
+                    @if (roleComputed() === 'Conferencista') {
+                        <a [routerLink]="['/auth/home']">Home</a>
+                        <a [routerLink]="['/auth/myconfs']">Mis Conferencias</a>
+                        <a [routerLink]="['/auth/confer/add']">Añadir Conferencia</a>
                     }
                     @if (roleComputed() ==='admin'){
-                        <a [routerLink]="['/administradores']">Administrar</a>
+                        <a [routerLink]="['/auth/home']">Home</a>
+                        <a [routerLink]="['/auth/administradores']">Administrar</a>
 
                     }
                 </nav>

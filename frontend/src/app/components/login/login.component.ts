@@ -45,13 +45,17 @@ export class LoginComponent {
       
       if(perfil != undefined ){
         setTimeout(() => {
-          this.router.navigate(["home"]);
+          this.router.navigate(["/auth/home"]);
         }, 300);
       }
     } catch (error) {
       console.log("Erro Angular");
     }
 
+  }
+
+  redirectTo(url:string){
+    this.router.navigate([`/${url}`]);
   }
   
 }

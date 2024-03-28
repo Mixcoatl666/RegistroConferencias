@@ -12,52 +12,78 @@ import { TestBackComponent } from './components/test-back/test-back.component';
 import { DetailConfComponent } from './components/detail-conf/detail-conf.component';
 import { MyConfsComponent } from './components/my-confs/my-confs.component';
 import { OneConferComponent } from './components/one-confer/one-confer.component';
+import { UserComponent } from './layouts/user/user.component';
+import { AuthComponent } from './layouts/auth/auth.component';
 
 const routes: Routes = [
   {
-    path: 'login', 
-    component: LoginComponent
+    path:'user',
+    component: UserComponent,
+    children:[
+      {
+        path:'login',
+        component: LoginComponent,
+        title :'Login'
+      },
+      {
+        path:'register',
+        component: RegisterComponent,
+        title:'Register'
+      },
+      {
+        path:'',
+        redirectTo:'login',
+        pathMatch:'full'
+      }
+    ]
   },
   {
-    path: 'register', 
-    component: RegisterComponent
-  },
-  {
-    path: 'home', 
-    component: HomeComponent, 
-    title:'Home'
-  },
-  {
-    path: 'confer/details/:title', 
-    component: DetailConfComponent
-  },
-  {
-    path: 'administradores', 
-    component: AdministradoresComponent,
-    canActivate:[authGuard],
-    data:{roles:["admin"]}
-  },
-  {
-    path: 'confer/add', 
-    component: TestBackComponent, 
-    canActivate:[authGuard],
-    data:{roles:["conf"]}
-  },
-  {
-    path: 'myconfs', 
-    component: MyConfsComponent, 
-    canActivate:[authGuard],
-    data:{roles:["conf"]}
-  },
-  {
-    path: 'confer/:id', 
-    component:OneConferComponent 
+    path:'auth',
+    component:AuthComponent,
+    children:[
+      {
+        path: 'home', 
+        component: HomeComponent, 
+        title:'Home'
+      },
+      {
+        path: 'confer/details/:title', 
+        component: DetailConfComponent
+      },
+      {
+        path: 'administradores', 
+        component: AdministradoresComponent,
+        canActivate:[authGuard],
+        data:{roles:["admin"]}
+      },
+      {
+        path: 'confer/add', 
+        component: TestBackComponent, 
+        canActivate:[authGuard],
+        data:{roles:["Conferencista"]}
+      },
+      {
+        path: 'myconfs', 
+        component: MyConfsComponent, 
+        canActivate:[authGuard],
+        data:{roles:["Conferencista"]}
+      },
+      {
+        path: 'confer/:id', 
+        component:OneConferComponent 
+      },
+      {
+        path:'',
+        redirectTo:'home',
+        pathMatch:'full'
+      }
+    ]
   },
   {
     path: 'creditos', 
     component: CreditosComponent
   },
-  {path: '', redirectTo: '/login', pathMatch:'full'}
+  {path: '', redirectTo: '/auth/home', pathMatch:'full'}
 ];
 
 @NgModule({

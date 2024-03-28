@@ -28,12 +28,12 @@ export class authGuard implements CanActivate {
         } */
         return true;
       }else{
-        this.router.navigate(['/login']);
+        this.router.navigate(['/user/login']);
         return false;
       }
     } else {
       // Si sessionStorage no está definido, redirige a la página de inicio de sesión por precaución
-      this.router.navigate(['/login']);
+      this.router.navigate(['/user/login']);
       return false;
     }
   }

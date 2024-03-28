@@ -1,5 +1,12 @@
 <!-- app.component.html -->
 
 <!-- <app-header></app-header> -->
-
-<router-outlet></router-outlet>
+@defer (on viewport){
+    <!-- Header -->
+    <!-- <app-tst-header /> -->
+    <router-outlet #pages ></router-outlet>
+    <!-- footer -->
+    <!-- <app-footer></app-footer> -->
+}@placeholder {
+    <p>loading...</p>
+}

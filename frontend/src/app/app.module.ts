@@ -21,6 +21,8 @@ import { ConferencesComponent } from './components/conferences/conferences.compo
 import { DetailConfComponent } from './components/detail-conf/detail-conf.component';
 import { MyConfsComponent } from './components/my-confs/my-confs.component';
 import { OneConferComponent } from './components/one-confer/one-confer.component';
+import { UserComponent } from './layouts/user/user.component';
+import { AuthComponent } from './layouts/auth/auth.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { OneConferComponent } from './components/one-confer/one-confer.component
     DetailConfComponent,
     MyConfsComponent,
     OneConferComponent,
+    UserComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
