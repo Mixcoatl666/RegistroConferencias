@@ -18,7 +18,7 @@ export class TstHeaderComponent implements OnInit{
   }
   //------------
   ngOnInit(): void {
-    this.loged = sessionStorage.getItem('tkn') ? true : false ;
+    //this.loged = sessionStorage.getItem('tkn') ? true : false ;
   }
 
   logOut(){

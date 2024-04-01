@@ -1,2 +1,37 @@
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs justify-content-center" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" data-bs-toggle="tab" href="#conferennces" aria-selected="true" role="tab" tabindex="-1">Conferences</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" data-bs-toggle="tab" href="#imagenes" aria-selected="false" role="tab">Images</a>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Ver conferencias -->
+      <div class="tab-pane fade" id="conferennces" role="tabpanel">
+        <!-- Aquí puedes mostrar las conferencias, suponiendo que `conferennces` es un arreglo de objetos que contiene datos de conferencias -->
+        <div *ngFor="let conference of conferennces">
+            <app-crm-confers [confers]="conferennces" />
+        </div>
+    </div>
+  
+    <!-- Ver y subir imágenes -->
+    <div class="tab-pane fade show active" id="imagenes" role="tabpane1">
+        <!-- Formulario para subir imágenes -->
+        <h2>Subir Imágenes</h2>
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="uploadImage()">Subir Imagen</button>
 
-<app-crm-confers [confers]="conferennces" />
+<h2>Mis Imágenes</h2>
+<div *ngFor="let image of images">
+  <img [src]="image.path" alt="{{ image.filename }}">
+  <button (click)="deleteImage(image._id)">Borrar</button>
+</div>
+
+    </div>
+</div>
+  
