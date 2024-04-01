@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConferenceService } from '../../services/conference.service';
+import { AssistService } from '../../services/assist.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
@@ -14,6 +15,7 @@ export class DetailConfComponent implements OnInit{
   //---------
   constructor(
     private conferServices:ConferenceService,
+    private assitServices:AssistService,
     private acRuter:ActivatedRoute
   ){
     this.dataConfs=new Array();
@@ -26,5 +28,8 @@ export class DetailConfComponent implements OnInit{
     let title = this.acRuter.snapshot.params['title'];
     let data = await this.conferServices.getOneConfer(title);
     this.dataConfs = data.horarios;
+  }
+  onSubmitAssist(id:string){
+    this.assitServices.assitConference(id);
   }
 }

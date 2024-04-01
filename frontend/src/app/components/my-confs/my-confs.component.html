@@ -6,38 +6,39 @@
             <thead class="th_crm">
                 <tr>
                     <th class="th_crm__title">Titulo</th>
-                    <th class="th_crm__title">Hora de Inicio</th>
-                    <th class="th_crm__title">Estatus</th>
+                    <th class="th_crm__title">Fecha</th>
+                    <th class="th_crm__title">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @for (conf of confers; track $index) {
+                @for (conf of conferences; track $index) {
                     <tr>
                         <td class="p-6">
                             <p class="text-2xl text-gray-800 space-y-2">{{conf.Titulo}}</p>
                         </td>
         
                         <td class="p-6">
-                            <p class="text-gray-600"><span class="text-gray-800 uppercase font-bold">Inicio: </span>{{conf.Horario.HoraInicio}}</p>
+                            <p class="text-gray-600">{{conf.Horario.Fecha}}</p>
                         </td>
         
                         <td class="p-6 flex gap-3">
                             <button 
                                 type="button" 
                                 class="text-blue-600 hover:text-blue-700 uppercase font-bold text-xs" 
-                                (click)="changeStatus(conf._id,conf.Status)"
-                            >{{conf.Status ? "Deshabilitar" : "Habilitar" }}</button>
+                                (click)="getDetailConf(conf._id)"
+                            >Editar</button>
                             <button 
                                 type="button" 
                                 class="text-red-600 hover:text-red-700 uppercase font-bold text-xs" 
-                                (click)="deleteConfer(conf._id)">Eliminar</button>
+                                (click)="deleteConfer(conf._id)"
+                            >Eliminar</button>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-        @if (confers.length == 0) {
-            <p class="text-center mt-10" >No hay conferencias aún</p>
+        @if (conferences.length == 0) {
+            <p class="text-center mt-10" >No tienes conferencias aún</p>
         }
     </div>
 </div>
