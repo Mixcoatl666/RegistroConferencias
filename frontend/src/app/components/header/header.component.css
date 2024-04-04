@@ -28,7 +28,7 @@ header {
 }
 
 nav a {
-    font-size: 18px;
+    font-size: 11px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
@@ -43,7 +43,7 @@ section {
     justify-content: center;
     align-items: center;
     background: #1f242d;
-    font-size: 100px;
+    font-size: 50px;
     color: #fff;
     font-weight: 700;
 }
