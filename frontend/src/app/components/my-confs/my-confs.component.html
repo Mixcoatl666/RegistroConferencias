@@ -1,0 +1,88 @@
+<!-- <div class="crm">
+    <h2 class="crm crm__title">Conferencias</h2>
+    <p class="mt-3">Administra las Conferencias</p>
+    <div class="crm__container" >
+        <table class="cont_crm">
+            <thead class="th_crm">
+                <tr>
+                    <th class="th_crm__title">Titulo</th>
+                    <th class="th_crm__title">Fecha</th>
+                    <th class="th_crm__title">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (conf of conferences; track $index) {
+                    <tr>
+                        <td class="p-6">
+                            <p class="text-2xl text-gray-800 space-y-2">{{conf.Titulo}}</p>
+                        </td>
+        
+                        <td class="p-6">
+                            <p class="text-gray-600">{{conf.Horario.Fecha}}</p>
+                        </td>
+        
+                        <td class="p-6 flex gap-3">
+                            <button 
+                                type="button" 
+                                class="text-blue-600 hover:text-blue-700 uppercase font-bold text-xs" 
+                                (click)="getDetailConf(conf._id)"
+                            >Editar</button>
+                            <button 
+                                type="button" 
+                                class="text-red-600 hover:text-red-700 uppercase font-bold text-xs" 
+                                (click)="deleteConfer(conf._id)"
+                            >Eliminar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @if (conferences.length == 0) {
+            <p class="text-center mt-10" >No tienes conferencias aún</p>
+        }
+    </div>
+</div>
+ -->
+
+ <section class="crm crm__container">
+    <h2 class="crm__title wd-90 ">Conferencias</h2>
+    <p class="wd-90 m-auto">Administra las Conferencias</p>
+    <div class="crm__container" >
+        <div class="cont_crm">
+            <div class="th_crm th_crm__title" >
+                <p >Titulo</p>
+            </div>
+            <div class="th_crm th_crm__hour" >
+                <p >Fecha</p>
+            </div>
+            <div class="th_crm th_crm__status">
+                <p >Estatus</p>
+            </div>
+                @for (conf of conferences; track $index) {
+                        <div class="tc_crm__title flex">
+                            <p class="">{{conf.Titulo}}</p>
+                        </div>
+        
+                        <div class="tc_crm__hour flex">
+                            <p class=""><span >Inicio: </span>{{conf.Horario.Fecha}}</p>
+                        </div>
+        
+                        <div class="tc_crm__status flex">
+                            <button 
+                                type="button" 
+                                class="btn" 
+                                (click)="getDetailConf(conf._id)"
+                            >Editar</button>
+                            <button 
+                                type="button" 
+                                class="btn" 
+                                (click)="deleteConfer(conf._id)"
+                            >Eliminar</button>
+                        </div>
+                }
+        </div>
+        @if (conferences.length == 0) {
+            <p class="text-center mt-10" >No hay conferencias aún</p>
+        }
+    </div>
+</section>

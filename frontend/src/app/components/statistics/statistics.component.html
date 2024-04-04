@@ -1,0 +1,75 @@
+@defer (on viewport) {
+
+    @if (confs.length > 0) {
+        <section class="crm crm__container">
+            <h2 class="crm__title wd-90 ">Conferencias</h2>
+            <p class="wd-90 m-auto">Estadisticas</p>
+            
+            <div class="crm__container" >
+                <div class="cont_crm">
+                    <div class="th_crm th_crm__title" >
+                        <p >Conferencista</p>
+                    </div>
+                    
+                    <div class="th_crm th_crm__date">
+                        <p >Fecha</p>
+                    </div>
+    
+                    <div class="th_crm th_crm__inic">
+                        <p >Hora de Inicio</p>
+                    </div>
+    
+                    <div class="th_crm th_crm__regist">
+                        <p >Asistentes</p>
+                    </div>
+    
+                    <div class="th_crm th_crm__lDisp">
+                        <p >Lugares Disponibles</p>
+                    </div>
+    
+                    <div class="th_crm th_crm__pDisp">
+                        <p >Cupo Disponible</p>
+                    </div>
+                    
+                    <div class="th_crm th_crm__pGen">
+                        <p >Hombres y Mujeres</p>
+                    </div>
+                        @for (conf of registers; track $index) {
+                            <div class="tc_crm__exp flex" >
+                                <p ><img [src]="conf.Foto" alt=""></p>
+                            </div>
+                            <div class="tc_crm__semb flex" >
+                                <p >{{conf.Fecha | date:'dd/MM/yyyy'}}</p>
+                            </div>
+                            <div class="tc_crm__inic flex">
+                                <p >{{conf.Inicio}} hrs</p>
+                            </div>
+                            <div class="tc_crm__fn flex">
+                                <p >{{conf.Asist}}</p>
+                            </div>
+                            <div class="tc_crm__place flex">
+                                <p >{{conf.Disponibles}}</p>
+                            </div>
+                            @defer (on idle) {
+                            <div class="tc_crm__actions flex">
+                                <p>{{conf.PromDisp}}%</p>
+                                    <!-- <p>
+                                        <app-graphic [porcent]="conf.PromDisp" ></app-graphic>
+                                    </p> -->
+                            </div>
+                            }
+                            <div class="tc_crm__place flex">
+                                <p >Femenino: {{porcent[$index].F}}%</p>
+                                <p >Masculino: {{porcent[$index].M}}%</p>
+                            </div>
+                        }
+                </div>
+            </div>
+        </section>
+    }@else {
+        <p class="text-center mt-10" >No hay conferencias aún</p>
+    }
+
+}@placeholder {
+    <p>Loading...</p>
+}    

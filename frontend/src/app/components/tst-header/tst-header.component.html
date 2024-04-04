@@ -2,22 +2,32 @@
     <div class="containerj content-header">
         <div class="bar">
             <div class="logo">
-                <a href="/home">
+                <a [routerLink]="['/auth/home']">
                     <h1 class="site-name" >App<span>Confs</span></h1>
                 </a>
             </div>
             <div class="log">
-                @if (loged) {
+                @if (logedComputed()) {
                     <a class="header-login" (click)="logOut()" >Logout</a>
                 }@else{
-                    <a class="header-login" [routerLink]="['/login']">Login</a>
+                    <a class="header-login" [routerLink]="['/user/login']">Login</a>
                 }
                 <nav class="navbar">
-                    <a [routerLink]="['/']">Mis Conferencias</a>
-                    <a [routerLink]="['/']">1 link</a>
-                    <a [routerLink]="['/confer/add']">Añadir Conferencia</a>
-                    <a [routerLink]="['/administradores']">Administrar</a>
-                    <a (click)="logOut()">Cerrar Sesion</a>
+                    @if (roleComputed() === 'Conferencista') {
+                        <a [routerLink]="['/auth/home']">Home</a>
+                        <a [routerLink]="['/auth/myconfs']">Mis Conferencias</a>
+                        <a [routerLink]="['/auth/confer/add']">Añadir Conferencia</a>
+                    }
+                    @if (roleComputed() ==='admin'){
+                        <a [routerLink]="['/auth/home']">Home</a>
+                        <a [routerLink]="['/auth/administradores']">Cambiar status</a>
+                        <a [routerLink]="['/auth/horarios']">Ver Horarios</a>
+                        <a [routerLink]="['/auth/all-confs']">Ver Conferencias</a>
+                        <a [routerLink]="['statistics']" >Estadisticas</a>
+                    }
+                    @if (roleComputed() ==='Asistente'){
+                        <a [routerLink]="['/auth/myassist']">Mis Conferencias</a>
+                    }
                 </nav>
             </div>
         </div>

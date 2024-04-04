@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit, computed, input, signal} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-tst-header',
   templateUrl: './tst-header.component.html',
@@ -8,22 +9,33 @@ import { UserService } from '../../services/user.service';
 })
 export class TstHeaderComponent implements OnInit{
   //------------
-  public loged:boolean;
+  //loged = input<boolean>(false);
+  private loged = signal<boolean>(false);
+  logedComputed = computed(()=> this.loged());
+  //role = input<string>('');
+  private role = signal<string>('');
+  roleComputed = computed(()=>this.role());
   //------------
   constructor(
     private router:Router,
     private userService:UserService
   ){
-    this.loged = false;
   }
   //------------
   ngOnInit(): void {
-    this.loged = sessionStorage.getItem('tkn') ? true : false ;
+    this.userService.getRole();
+    this.loged.set( this.userService.isLogedComputed() );
+    this.role.set(this.userService.userComputed());
+    console.log(this.role());
   }
-
+  
   logOut(){
+    //this.userService
     this.userService.logout();
-    this.router.navigate(['/login']);
+    this.userService.getRole();
+    this.loged.set( this.userService.isLogedComputed() );
+    this.role.set(this.userService.userComputed());
+    this.router.navigate(['/auth/home']);
   }
 }
 

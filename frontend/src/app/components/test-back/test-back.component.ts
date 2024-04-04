@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Conferencia } from '../../models/Conference';
 import { ConferenceService } from '../../services/conference.service';
 import { AssistService } from '../../services/assist.service';
+import { Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-test-back',
@@ -11,6 +13,8 @@ import { AssistService } from '../../services/assist.service';
 })
 export class TestBackComponent implements OnInit{
   public conferences:Array<any> = [];
+  public confers:Array<any> = new Array();
+  
   //-----------
   //  Formulario de conferencias
   conferForm = this.fb.group({
@@ -29,14 +33,17 @@ export class TestBackComponent implements OnInit{
   constructor(
     private fb : FormBuilder,
     private conferenceService:ConferenceService,
-    private assistService:AssistService
+    private assistService:AssistService,
+    private router:Router
   ){
 
   }
 
   //--------
-  ngOnInit(): void {
+  async ngOnInit() {
     //this.getConfersDispo();
+    this.confers = await this.conferenceService.groupTitles();
+
   }
   /**
    * Funcion para añadir una conferencia
@@ -66,6 +73,7 @@ export class TestBackComponent implements OnInit{
     
     console.log(nwConfer)
     this.conferenceService.addConference(nwConfer);
+    this.router.navigate(['/auth/myconfs']);
   }
   /**
    * Funcion para asistir a una conferencia

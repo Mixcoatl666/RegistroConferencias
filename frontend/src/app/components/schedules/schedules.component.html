@@ -1,0 +1,29 @@
+<section class="crm crm__container">
+    <h2 class="crm__title wd-90 ">Conferencias</h2>
+    <p class="wd-90 m-auto">Administra las Conferencias</p>
+    <div class="crm__container">
+        <div class="cont_crm">
+            <div class="th_crm th_crm__title">
+                <p>Titulo</p>
+            </div><div class="th_crm th_crm__hour">
+                <p>Horarios</p>
+            </div>
+            @for (conf of confers; track $index) {
+            <div class="tc_crm__title flex">
+                <p class="">{{conf.Titulos}}</p>
+            </div>
+
+            <div class="tc_crm__hour flex jc-center">
+                <button 
+                    type="submit" 
+                    class="btn wd-90 " 
+                    (click)="onSubmitGet(conf.Titulos)"
+                >Ver Más</button>
+            </div>
+            }
+        </div>
+        @if (confers.length == 0) {
+        <p class="text-center mt-10">No hay conferencias aún</p>
+        }
+    </div>
+</section>

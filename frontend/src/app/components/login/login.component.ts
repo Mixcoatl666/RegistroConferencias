@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 //import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
@@ -12,12 +12,12 @@ import { UserService } from '../../services/user.service';
 
 export class LoginComponent {
   //------------
+
   loginForm = this.fb.group({
     email:['', [Validators.required, Validators.email]],
     password:['',[Validators.required]]
   });
   //------------
-
   constructor(
     private fb:FormBuilder,
     //private authService: AuthService,
@@ -34,19 +34,28 @@ export class LoginComponent {
     return this.loginForm.controls['password'];
   }
 
-    login() {
+    async login() {
     console.log('Se obtienen los datos');
     try {
       const {email, password} = this.loginForm.value;
       // Lógica de autenticación aquí
-      this.userService.login(email!,password!);
-      setTimeout(() => {
-        this.router.navigate(["/home"]);
-      }, 300);
+      const perfil = await this.userService.login(email!,password!);
+      //console.log(perfil);
+      console.log(perfil);
+      
+      if(perfil != undefined ){
+        setTimeout(() => {
+          this.router.navigate(["/auth/home"]);
+        }, 300);
+      }
     } catch (error) {
       console.log("Erro Angular");
     }
 
+  }
+
+  redirectTo(url:string){
+    this.router.navigate([`/${url}`]);
   }
   
 }

@@ -27,16 +27,18 @@ export class ConferenceService {
         }
       }
       const { data } = await clienteAxios.post('/confer',conference,config);
-      console.log(data);
+      return data;
     }catch(error){
-      console.log("Error en angular");
+      console.log("Faltan Datos");
     }
   }
   //
   async listConfersAdm(){
+    //console.log('empieza try..')
     try {
+      
       const { data } = await clienteAxios.get('/confer/adm');
-      console.log(data);
+      //console.log(data);
       return data;
     } catch (error) {
       console.log("Error en Angular")
@@ -46,7 +48,7 @@ export class ConferenceService {
   async getConfsDisp(){
     try {
       const { data } = await clienteAxios.get('/confer/pbl');
-      console.log(data);
+      //console.log(data);
       return(data);
     } catch (error) {
       console.log("Error Angular");
@@ -57,7 +59,8 @@ export class ConferenceService {
     try {
       const url = `/confer/adm/?id=${id}&status=${status}`;
       const { data } = await clienteAxios.put(url,status);
-      console.log(data);
+      //console.log(data);
+      return data;
     } catch (error) {
       console.log("Error angular");
     }
@@ -65,6 +68,35 @@ export class ConferenceService {
   // 
   async getOneConfer(titulo:string){
     const url = `/confer/title/${titulo}`;
+    try {
+      const { data } = await clienteAxios.get(url);
+      //console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error de angular")
+    }
+  }
+  //
+  async getMyConfers(){
+    try {
+      const token = sessionStorage.getItem('tkn');
+      if(!token) return;
+  
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.get('/confer',config);
+      //console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error Angular");      
+    }
+  }
+  //
+  async detalConf(id:string){
     try {
       const token = sessionStorage.getItem('tkn');
       
@@ -75,11 +107,62 @@ export class ConferenceService {
           Authorization: `Bearer ${token}`
         }
       }
-      const { data } = await clienteAxios.get(url,config);
-      console.log(data);
+      const { data } = await clienteAxios.get(`/confer/${id}`,config);
+      //console.log(data);
       return data;
     } catch (error) {
-      console.log("Error de angular")
+      console.log("Error en angular");
+    }
+  }
+  //
+  async editConf(id:string,confer:any){
+    //console.log("On edit...");
+    try {
+      const token = sessionStorage.getItem('tkn');
+      
+      if(!token) return;
+      //console.log("On edit try retur...");
+      const config = {
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+        }
+      }
+      const { data } = await clienteAxios.put(`/confer/${id}`,confer,config);
+      //console.log(data);
+      return data;
+    }catch(error){
+      console.log("Error en Angular")
+    }
+  }
+  //
+  async deleteConf(id:string){
+    try {
+      const {data} = await clienteAxios.delete(`/confer/${id}`);
+      //console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error Angular");
+    }
+  }
+
+  async groupTitles(){
+    try {
+      const {data} = await clienteAxios.get('/confer/titles');
+      //console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Error Angular");
+    }
+  }
+
+  async confersDate(date:string){
+    try{
+      const {data} = await clienteAxios.get(`/confer/date/?date=${date}`);
+      //console.log(data);
+      return data;
+    }catch(error){
+      console.log("Error angular");
     }
   }
   //-----------

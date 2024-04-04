@@ -1,13 +1,17 @@
-import express,{ json } from 'express';
+import express,{ Router, json } from 'express';
 import { 
     nuevaConf,
     listarConfsExp,
     listConfsAdmin,
+    detailConf,
     listConfsDisp,
     switchStatus,
     modifConf,
     infoConfer,
     todaysConfs,
+    deleteOneConf,
+    groupConfers,
+    listarConfsAssist
 } from '../controllers/conferenceController.js'
 import identi from '../middlewares/identi.js';
 
@@ -20,26 +24,41 @@ const ROUTER = express.Router();   //  Para usar los metodos http
  * ej. router.get('/',usuarios);
  * ej. router.post('/',crearUsuario);
 */
-//  Registrar, listar conferencias por expositor
-ROUTER.route('/')
-        .post(identi,nuevaConf)
-        .get(identi,listarConfsExp)
-        .put(identi,modifConf)
+// listar confs aprovadas
+ROUTER.route('/pbl')
+        .get(listConfsDisp)
+;
+// listar titulos
+ROUTER.route('/titles')
+        .get(groupConfers)
+;
+// listar por fechas
+ROUTER.route('/date')
+        .get(todaysConfs)
 ;
 // rutas adm Listar conferencias para el admin
 ROUTER.route('/adm')
         .get(listConfsAdmin)
         .put(switchStatus)
 ;
-// listar confs aprovadas
-ROUTER.route('/pbl')
-        .get(listConfsDisp)
-;
 // obtener confeencia por titulo
 ROUTER.route('/title/:titulo')
         .get(infoConfer)
 ;
+// obtener conferencias a las que asistire
+ROUTER.route('/asist')
+        .get(identi,listarConfsAssist)
+;
+//  Registrar, listar conferencias por expositor
+ROUTER.route('/')
+        .post(identi,nuevaConf)
+        .get(identi,listarConfsExp)
+;
+ROUTER.route('/:id')
+        .get(identi,detailConf)
+        .put(identi,modifConf)
+        .delete(deleteOneConf)
+;
 
-ROUTER.get('/date/:fecha',todaysConfs);
 
 export default ROUTER;

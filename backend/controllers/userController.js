@@ -43,7 +43,7 @@ const autenticarUsuario = async (req,res) => {
                         id:logUser._id,
                         nombre:logUser.nombre,
                         email:logUser.email,
-                        token: generarJWT(logUser._id,logUser.sexo),
+                        token: generarJWT(logUser._id,logUser.sexo,logUser.rol),
                         rol: logUser.rol
                     }});
 
@@ -58,7 +58,7 @@ const autenticarUsuario = async (req,res) => {
 const mostrarPerfil = async (req,res) =>{
     const { usuario } = req;
     res.json({usuario});
-    console.log('hola desde controller')
+    //console.log('hola desde controller')
 }
 
 
