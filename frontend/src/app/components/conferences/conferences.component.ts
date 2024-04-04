@@ -29,7 +29,6 @@ export class ConferencesComponent implements OnInit{
   async getConferences(){
     try{
       this.listConferences = await this.confersService.getConfsDisp();
-      console.log(this.listConferences);
     }catch(error){
       console.log("Erro en Angular");
     }
