@@ -15,6 +15,7 @@ const USER_SCHEMA = mongoose.Schema(
             Expositor:
                 {
                     _id:{type:mongoose.Schema.Types.ObjectId, ref:"usuario"},
+                    Nombre:{type:String},
                     Semblanza:{type:String, required:true, trim:true},
                     Foto:{type:String},
                 },
@@ -22,9 +23,10 @@ const USER_SCHEMA = mongoose.Schema(
             AsistentesRegistrados:
                 [
                     {
-                        type: mongoose.Schema.Types.ObjectId,
-                        ref:"usuario"
+                        _id:{type: mongoose.Schema.Types.ObjectId, ref:"usuario" },
+                        sexo:{type:String,required:true,trim:true}
                     }
+
                 ]
         },
     Status:{type:Boolean,required:true}

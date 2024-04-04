@@ -2,7 +2,7 @@
     <div class="containerj content-header">
         <div class="bar">
             <div class="logo">
-                <a [routerLink]="['/home']">
+                <a [routerLink]="['/auth/home']">
                     <h1 class="site-name" >App<span>Confs</span></h1>
                 </a>
             </div>
@@ -20,8 +20,13 @@
                     }
                     @if (roleComputed() ==='admin'){
                         <a [routerLink]="['/auth/home']">Home</a>
-                        <a [routerLink]="['/auth/administradores']">Administrar</a>
-
+                        <a [routerLink]="['/auth/administradores']">Cambiar status</a>
+                        <a [routerLink]="['/auth/horarios']">Ver Horarios</a>
+                        <a [routerLink]="['/auth/all-confs']">Ver Conferencias</a>
+                        <a [routerLink]="['statistics']" >Estadisticas</a>
+                    }
+                    @if (roleComputed() ==='Asistente'){
+                        <a [routerLink]="['/auth/myassist']">Mis Conferencias</a>
                     }
                 </nav>
             </div>

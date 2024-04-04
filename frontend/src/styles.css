@@ -2,16 +2,16 @@
 @import "bootstrap/dist/css/bootstrap.css";
 @import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 
-:root{
+:root {
     --blanco: rgba(255, 255, 255, 0.873);
-    --negro:#111111;
-    --gris:#343A40;
-    --darkBlue:#1C1B4D;
-    --pink:#be1e71;
-    --celest:#1791B1; 
+    --negro: #111111;
+    --gris: #343A40;
+    --darkBlue: #1C1B4D;
+    --pink: #be1e71;
+    --celest: #1791B1;
     --mainFilter: rgba(255, 255, 255, 0.332);
     --secondFilter: #f7417e;
-    --blackFilter : #333;
+    --blackFilter: #333;
     --fuentePrincipal: "Happy Monkey", system-ui;
     --purple-background: #6f42c1;
 }
@@ -22,14 +22,18 @@ html {
 }
 
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
 body {
     font-family: var(--fuentePrincipal);
-    font-size: 1.9rem; /*16 px*/
-    line-height: 1.8; /*interlineado*/
+    font-size: 1.9rem;
+    /*16 px*/
+    line-height: 1.8;
+    /*interlineado*/
     background-color: #330055;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%2338005d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%233e0064' cx='50' cy='100' r='50'/%3E%3Cg fill='%2343016c' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23480174' cx='50' cy='200' r='50'/%3E%3Cg fill='%234e027c' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23540285' cx='50' cy='300' r='50'/%3E%3Cg fill='%2359038d' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%235f0395' cx='50' cy='400' r='50'/%3E%3Cg fill='%2365049e' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%236b05a6' cx='50' cy='500' r='50'/%3E%3Cg fill='%237106af' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%237706b7' cx='50' cy='600' r='50'/%3E%3Cg fill='%237d07c0' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%238308c9' cx='50' cy='700' r='50'/%3E%3Cg fill='%238909d2' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%238f0bdb' cx='50' cy='800' r='50'/%3E%3Cg fill='%23960ce4' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%239c0ded' cx='50' cy='900' r='50'/%3E%3Cg fill='%23a30ef6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23A90FFF' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
@@ -37,24 +41,26 @@ body {
     color: var(--blanco);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: 900;
     margin: 1rem 0 4rem 0;
 }
 
-h1{
+h1 {
     font-size: 4.8rem;
 }
 
-h2{
+h2 {
     font-size: 5.8rem;
 }
 
-h3{
+h3 {
     font-size: 5rem;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -73,21 +79,24 @@ img {
     color: var(--gris);
     background-color: var(--blanco);
     border: 1px solid var(--gris);
-    padding: .5rem 2rem;
+    padding: 1rem 2rem;
     transition: background-color 3s;
+    width: 100%;
+    font-size: 2rem;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.prc-50{
+.prc-50 {
     width: 50%;
 }
 
 btn:hover {
     background-color: var(--gris);
     color: var(--blanco);
+    transition: background-color 2s;
 }
 
 /** utilidades **/
@@ -120,7 +129,7 @@ btn:hover {
 .content-header {
     display: flex;
     flex-direction: column;
-    height: calc(60rem - 35rem);
+    height: calc(40rem - 20rem);
     justify-content: space-between;
     color: var(--blanco);
 }
@@ -155,8 +164,8 @@ btn:hover {
     align-items: center;
 }
 
-@media (min-width:768px){
-    .log{
+@media (min-width:768px) {
+    .log {
         align-items: flex-end;
     }
 }
@@ -164,7 +173,7 @@ btn:hover {
 .header-login {
     display: flex;
 }
- 
+
 .header-login::before {
     content: '';
     display: block;
@@ -178,7 +187,7 @@ btn:hover {
 
 
 .header a {
-    color:var(--blanco);
+    color: var(--blanco);
     font-weight: 2.3rem;
 }
 
@@ -190,7 +199,7 @@ btn:hover {
     margin-top: 1rem;
 }
 
-@media (min-width:768px){
+@media (min-width:768px) {
     .navbar {
         flex-direction: row;
     }
@@ -212,60 +221,34 @@ btn:hover {
 
 .navbar a:hover {
     background-color: rgb(255 255 255 /.5);
-} 
+}
 
-.slogan{
+.slogan {
     text-align: center;
 }
 
-@media (min-width:768px){
-    .slogan{
+@media (min-width:768px) {
+    .slogan {
         text-align: right;
     }
 }
 
-.slogan h1{
+.slogan h1 {
     font-size: 3rem;
     margin: 0;
 }
 
-@media (min-width:768px){
-    .slogan h1{
+@media (min-width:768px) {
+    .slogan h1 {
         font-size: 5rem;
     }
 }
 
-.slogan p{
+.slogan p {
     margin: 0;
     line-height: 1;
 }
 
-
-/* crm */
-.crm h2 {
-    text-align: center;
-}
-
-.crm p {
-    text-align: center;
-}
-
-.crm__container {
-    display: grid;
-    align-items: center;
-}
-
-.crm__container tr th{
-    text-align: center;
-}
-
-.crm__title {
-    color:black;
-}
-
-.crm p{
-    color: black;
-}
 
 /* forms */
 /* button {
@@ -312,17 +295,17 @@ btn:hover {
 .login__container {
     width: 100%;
     /* background:var(--secondFilter); */
-    background:var(--blackFilter);
+    background: var(--blackFilter);
     padding: 5rem;
     opacity: .9;
-    backdrop-filter:blur(2px);
+    backdrop-filter: blur(2px);
     border-radius: 1rem;
     position: relative;
     z-index: 1;
 }
 
 /* cuando pantalla mayor a 768px */
-@media (min-width:768px){
+@media (min-width:768px) {
     .login__card {
         width: 35%;
     }
@@ -332,7 +315,7 @@ btn:hover {
     width: 100%;
 }
 
-.login__container-title h1{
+.login__container-title h1 {
     font-size: 4rem;
     text-transform: uppercase;
     overflow-wrap: break-word;
@@ -343,11 +326,11 @@ btn:hover {
 
 }
 
-.login-content{
+.login-content {
     position: relative;
 }
 
-.login__container-content input{
+.login__container-content input {
     /* display: block; */
     width: 100%;
     background: transparent;
@@ -362,24 +345,24 @@ btn:hover {
 
 .login-content label {
     position: absolute;
-    top:0;
+    top: 0;
     left: 5px;
     transform: translateY(10px);
     transition: transform .8s;
 }
 
 
-.login__container-content input::placeholder{
+.login__container-content input::placeholder {
     color: var(--blanco);
 }
 
-.login__container-content input:focus{
+.login__container-content input:focus {
     border-bottom-color: var(--pink);
     transition: all inherit;
 }
 
-.login-content input:focus + label,
-.login-content input:not(:placeholder-shown) + label {
+.login-content input:focus+label,
+.login-content input:not(:placeholder-shown)+label {
     transform: translateY(-12px) scale(.7);
     transform-origin: top left;
     color: var(--pink);
@@ -393,7 +376,7 @@ btn:hover {
     width: 100%;
 }
 
-.login__btn button{
+.login__btn button {
     margin-top: 3rem;
     padding: 1rem;
     width: 90%;
@@ -401,7 +384,7 @@ btn:hover {
     outline: none;
     box-shadow: 1px 1px .5rem var(--negro);
     background-color: transparent;
-    color:var(--blanco);
+    color: var(--blanco);
     transition: all 0.5s;
 }
 
@@ -411,8 +394,8 @@ btn:hover {
     transition: all 0.5s;
 }
 
-.msg-err{
-    color: var(--pink) ;
+.msg-err {
+    color: var(--pink);
 }
 
 .register__link {
@@ -426,7 +409,7 @@ btn:hover {
     transform: translateX(50%);
 }
 
-.register__btn button{
+.register__btn button {
     margin-top: 0;
     box-shadow: none;
     visibility: hidden;
@@ -452,7 +435,7 @@ btn:hover {
 .face2 {
     width: 30%;
     background-color: var(--secondFilter);
-    position:relative;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -461,15 +444,16 @@ btn:hover {
     transition: transform .8s;
 }
 
-.face2 p{
+.face2 p {
     width: 60%;
     margin-top: 1rem;
 }
 
-.face2:hover{
+.face2:hover {
     transform: translateY(0rem);
     transition: all .8s;
-    & button{
+
+    & button {
         visibility: visible;
         transition: all .8s;
         background-color: transparent;
@@ -480,9 +464,9 @@ btn:hover {
 .material-symbols-outlined {
     font-size: 4rem;
     margin: 0;
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }

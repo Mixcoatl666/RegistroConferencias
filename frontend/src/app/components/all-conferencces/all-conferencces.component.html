@@ -1,0 +1,134 @@
+
+<section class="crm crm__container">
+    <h2 class="crm__title wd-90 ">Conferencias</h2>
+    <p class="wd-90 m-auto">Conferencias por fecha</p>
+    <div class="crm__container" >
+        <div class="login__container-content">
+            <div class="login-content">
+                <input  
+                id="fecha" 
+                type="date" 
+                [(ngModel)]="dateConf" 
+                placeholder=" "
+                (change)="changeDate()"
+                >
+                <label for="fecha">Fecha</label>
+                </div>
+            </div>
+            @if (confs.length > 0) {
+            <div class="cont_crm">
+                <div class="th_crm th_crm__exp" >
+                    <p >Expositor</p>
+                </div>
+                <div class="th_crm th_crm__semb" >
+                    <p >Semblanza</p>
+                </div>
+                <div class="th_crm th_crm__inic">
+                    <p >Hora de Inicio</p>
+                </div>
+                <div class="th_crm th_crm__fn">
+                    <p >Fecha</p>
+                </div>
+                <div class="th_crm th_crm__place">
+                    <p >Lugar</p>
+                </div>
+                <div class="th_crm th_crm__actions">
+                    <p >Acciones</p>
+                </div>
+                @for (conf of confs; track $index) {
+                    <div class="tc_crm__exp flex" >
+                        <p>
+                            <img [src]="conf.Horario.Expositor.Foto" alt="">
+                        </p> 
+                    </div>
+                    <div class="tc_crm__semb flex" >
+                        <p >{{conf.Horario.Expositor.Semblanza}}</p>
+                    </div>
+                    <div class="tc_crm__inic flex">
+                        <p >{{conf.Horario.HoraInicio}} hrs</p>
+                    </div>
+                    <div class="tc_crm__fn flex">
+                        <p >{{conf.Horario.Fecha | date:'dd/MM/yyyy'}}</p>
+                    </div>
+                    <div class="tc_crm__place flex">
+                        <p >{{conf.Horario.Lugar}}</p>
+                    </div>
+                    <div class="tc_crm__actions flex">
+                        
+                    </div>
+                }
+            </div>
+            }@else {
+                <p class="text-center mt-10" >No hay conferencias aún</p>
+            }
+        </div>
+    </section>
+
+@defer (on viewport) {
+    <section class="crm crm__container">
+        <p class="wd-90 m-auto">Conferencias Cupo Lleno</p>
+            <div class="crm__container" >
+                <div class="login__container-content">
+                    <div class="login-content">
+                        <input  
+                            id="fecha" 
+                            type="date" 
+                            [(ngModel)]="dateConfSold" 
+                            placeholder=" "
+                            (change)="changeDateSold()"
+                        >
+                        <label for="fecha">Fecha</label>
+                    </div>
+                </div>
+                
+                @if (confsSold.length > 0) {
+                <div class="cont_crm">
+                    <div class="th_crm th_crm__exp" >
+                        <p >Expositor</p>
+                    </div>
+                    <div class="th_crm th_crm__semb" >
+                        <p >Semblanza</p>
+                    </div>
+                    <div class="th_crm th_crm__inic">
+                        <p >Hora de Inicio</p>
+                    </div>
+                    <div class="th_crm th_crm__fn">
+                        <p >Fecha</p>
+                    </div>
+                    <div class="th_crm th_crm__place">
+                        <p >Lugar</p>
+                    </div>
+                    <div class="th_crm th_crm__actions">
+                        <p >Acciones</p>
+                    </div>
+                    @for (conf of confsSold; track $index) {
+                        <div class="tc_crm__exp flex" >
+                            <p>
+                                <img [src]="conf.Horario.Expositor.Foto" alt="">
+                            </p>
+                        </div>
+                        <div class="tc_crm__semb flex" >
+                            <p >{{conf.Horario.Expositor.Semblanza}}</p>
+                        </div>
+                        <div class="tc_crm__inic flex">
+                            <p >{{conf.Horario.HoraInicio}} hrs</p>
+                        </div>
+                        <div class="tc_crm__fn flex">
+                            <p >{{conf.Horario.Fecha | date:'dd/MM/yyyy'}}</p>
+                        </div>
+                        <div class="tc_crm__place flex">
+                            <p >{{conf.Horario.Lugar}}</p>
+                        </div>
+                        <div class="tc_crm__actions flex">
+                            
+                        </div>
+                    }
+                </div>
+            }@else {
+                <p class="text-center mt-10" >No hay conferencias aún</p>
+            }
+            </div>
+        </section>
+}@placeholder { 
+    <p>loading...</p>
+}
