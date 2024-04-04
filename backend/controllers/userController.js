@@ -58,7 +58,7 @@ const autenticarUsuario = async (req,res) => {
 const mostrarPerfil = async (req,res) =>{
     const { usuario } = req;
     res.json({usuario});
-    console.log('hola desde controller')
+    //console.log('hola desde controller')
 }
 
 

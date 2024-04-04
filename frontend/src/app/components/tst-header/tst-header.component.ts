@@ -35,7 +35,7 @@ export class TstHeaderComponent implements OnInit{
     this.userService.getRole();
     this.loged.set( this.userService.isLogedComputed() );
     this.role.set(this.userService.userComputed());
-    this.router.initialNavigation();
+    this.router.navigate(['/auth/home']);
   }
 }
 

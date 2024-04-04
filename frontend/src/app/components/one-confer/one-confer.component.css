@@ -1,0 +1,6 @@
+.login{
+    /*position: relative; */
+    height: auto;
+    display: flex;
+    justify-content: center;
+}

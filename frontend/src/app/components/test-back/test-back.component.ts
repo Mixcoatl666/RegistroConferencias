@@ -4,6 +4,7 @@ import { Conferencia } from '../../models/Conference';
 import { ConferenceService } from '../../services/conference.service';
 import { AssistService } from '../../services/assist.service';
 import { Router } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-test-back',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class TestBackComponent implements OnInit{
   public conferences:Array<any> = [];
+  public confers:Array<any> = new Array();
+  
   //-----------
   //  Formulario de conferencias
   conferForm = this.fb.group({
@@ -37,8 +40,10 @@ export class TestBackComponent implements OnInit{
   }
 
   //--------
-  ngOnInit(): void {
+  async ngOnInit() {
     //this.getConfersDispo();
+    this.confers = await this.conferenceService.groupTitles();
+
   }
   /**
    * Funcion para añadir una conferencia

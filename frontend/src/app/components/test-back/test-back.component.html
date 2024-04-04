@@ -1,116 +1,76 @@
 <!-- Inicio: Tarjeta de prueba para Añadir conferencia -->
-<div class="container mt-5 mb-5" id="addConfer" >
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-            <div class="card-header text-center" style="background-color: #f8f8f8;">
-                <h5>
-                    Registra una conferencia
-                </h5>
-            </div>
-          <div class="card-body">
-            <!-- formulario -->
-            <form [formGroup]="conferForm" (ngSubmit)="onSubmitConfer()" >
-              <!-- Titulo -->
-              <div class="form-group">
-                <label for="titulo">Titulo</label>
-                <input type="text" class="form-control" formControlName="titulo" placeholder="Titulo">
-                <!-- <small *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="form-text text-danger">
+<div class="login">
+  <div class="login__card">
+    <div class="login__container">
+      <div class="login__container-title">
+          <h1>
+            Registra una conferencia
+          </h1>
+        <div class="login__container-content">
+          <!-- formulario -->
+          <form [formGroup]="conferForm" (ngSubmit)="onSubmitConfer()">
+            <!-- Titulo -->
+            <div class="login-content" >
+              <input id="titulo" list="confs" type="text" formControlName="titulo" placeholder=" ">
+              <label for="titulo">Titulo</label>
+              <!-- <small *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="form-text text-danger">
                   <div *ngIf="nombre.hasError('required')">Ingresa tu Nombre</div>
                 </small> -->
-              </div>
-              <!-- Descripcion -->
-              <div class="form-group mt-3">
-                <label for="descrip">Descripción</label>
-                <input type="text" class="form-control" formControlName="descrip" placeholder="Descripcion">
-              </div>
-              <!-- Lugar -->
-              <div class="form-group mt-3">
-                <label for="lugar">Lugar</label>
-                <input type="text" class="form-control" formControlName="lugar" placeholder="Lugar">
-              </div>
-              <!-- Fecha -->
-              <div class="form-group mt-3">
-                <label for="fecha">Fecha</label>
-                <input type="date" class="form-control" formControlName="fecha" placeholder="Fecha">
-              </div>
-              <!-- H Inicio -->
-              <div class="form-group mt-3">
-                <label for="horaInicio">Hora Inicio</label>
-                <input type="time" class="form-control" formControlName="horaInicio" >
-              </div>
-              <!-- H Fin -->
-              <div class="form-group mt-3">
-                <label for="horaFin|">Hora Finalización</label>
-                <input type="time" class="form-control" formControlName="horaFin" >
-              </div>
-              <!-- Ex. Semblanza -->
-              <div class="form-group mt-3">
-                <label for="semblanza" >Pequeña Semblanza</label>
-                <input type="text" class="form-control" formControlName="semblanza" >
-              </div>
-              <!-- Ex. Foto -->
-              <div class="form-group mt-3">
-                <label for="foto">Foto</label>
-                <input type="text" class="form-control" formControlName="foto" placeholder="URL Foto">
-              </div>
-              <!-- Cnf. Cupo total -->
-              <div class="form-group mt-3">
-                <label for="cupo" >Cupo Total</label>
-                <input type="text" class="form-control" formControlName="cupo" placeholder="Cupo Total">
-              </div>
-              
-              <!-- submit btn -->
-              <button type="submit" class="btn btn-primary mt-3" >Registrar</button>
-            </form>
-          </div>
+                <datalist id="confs" >
+                  @for (item of confers; track $index) {
+                    <option [value]="item.Titulos"></option>
+                  }
+                </datalist>
+            </div>
+            <!-- Descripcion -->
+            <div class="login-content">
+              <input id="descrip" type="text" formControlName="descrip" placeholder=" ">
+              <label for="descrip">Descripción</label>
+            </div>
+            <!-- Lugar -->
+            <div class="login-content">
+              <input id="lugar" type="text" formControlName="lugar" placeholder=" ">
+              <label for="lugar">Lugar</label>
+            </div>
+            <!-- Fecha -->
+            <div class="login-content">
+              <input  id="fecha" type="date" formControlName="fecha" placeholder=" ">
+              <label for="fecha">Fecha</label>
+            </div>
+            <!-- H Inicio -->
+            <div class="login-content">
+              <input id="horaInicio" type="time" formControlName="horaInicio" placeholder=" ">
+              <label for="horaInicio">Hora Inicio</label>
+            </div>
+            <!-- H Fin -->
+            <div class="login-content">
+              <input id="horaFin" type="time" formControlName="horaFin" placeholder=" ">
+              <label for="horaFin">Hora Finalización</label>
+            </div>
+            <!-- Ex. Semblanza -->
+            <div class="login-content">
+              <input id="semblanza" type="text" formControlName="semblanza" placeholder=" ">
+              <label for="semblanza">Pequeña Semblanza</label>
+            </div>
+            <!-- Ex. Foto -->
+            <div class="login-content">
+              <input id="foto" type="text" formControlName="foto" placeholder=" ">
+              <label for="foto">Foto</label>
+            </div>
+            <!-- Cnf. Cupo total -->
+            <div class="login-content">
+              <input id="cupo" type="number" formControlName="cupo" placeholder=" ">
+              <label for="cupo">Cupo Total</label>
+            </div>
+
+            <!-- submit btn -->
+            <div class="login__btn">
+              <button type="submit" [disabled]="!conferForm.valid" >Registrar</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-</div>
-<!-- Fin: Tarjeta de prueba para Añadir conferencia -->
-
-<!-- Inicio: Tarjeta de prueba para Asistir a conferencia -->
-<!-- <div class="containerConf" id="assist" >
-    <div class="cardConf">
-        <div class="imageConf">
-            <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
-        </div>
-        <div class="contentConf">
-            <h2>Confer Static</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                Tempora ex deleniti qui ea corporis odio laudantium maiores omnis laborum,
-                quasi voluptas velit cumque reprehenderit sapiente iusto cupiditate, 
-                dolorem delectus quis.
-            </p>
-            <button type="submit" (click)="onSubmitAssist('9')" >Asistir</button>
-        </div>
-    </div>
-</div> -->
-<!-- Fin: Tarjeta de prueba para Asistir a conferencia -->
-
-<!-- Inicio: Conferencias -->
-<!-- <div class="containerConfs">
-@for (item of conferences; track $index) {
-<div class="containerConf" id="assist" >
-  <div class="cardConf">
-      <div class="imageConf">
-          <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
-      </div>
-      <div class="contentConf">
-          <h2>{{item.Titulo}}</h2>
-          <p>
-              {{item.Descripcion}}
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-              Tempora ex deleniti qui ea corporis odio laudantium maiores omnis laborum,
-              quasi voluptas velit cumque reprehenderit sapiente iusto cupiditate, 
-              dolorem delectus quis.
-          </p>
-          <button type="submit" (click)="onSubmitAssist(item._id)" >Asistir</button>
-      </div>
   </div>
 </div>
-}
-</div>
- -->
+<!-- Fin: Tarjeta de prueba para Añadir conferencia -->
