@@ -23,7 +23,7 @@ export class AssistService {
           }
         }
       const { data } = await clienteAxios.post(url,undefined,config);
-      //console.log(data);
+      console.log(data);
       return data;
     } catch (error) {
       console.log("Error en angular"); 
