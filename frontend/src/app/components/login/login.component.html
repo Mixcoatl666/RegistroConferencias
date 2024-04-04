@@ -85,7 +85,7 @@
             </div>
             <!-- btn sbmt -->
             <div class="login__btn">
-              <button type="submit" >Ingresar</button>
+              <button type="submit" [disabled]="!loginForm.valid" >Ingresar</button>
             </div>
           </form>
         </div>

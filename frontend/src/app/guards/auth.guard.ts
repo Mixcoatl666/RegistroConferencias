@@ -12,14 +12,14 @@ export class authGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot,state: RouterStateSnapshot): boolean {
     // Verifica si sessionStorage está definido antes de intentar acceder a él
     let expectedRoles = next.data['roles'];
-    console.log(expectedRoles);
+    //console.log(expectedRoles);
     this.userService.getRole();
     if (typeof sessionStorage !== 'undefined' || expectedRoles !== 'undefined') {
       const token = sessionStorage.getItem('tkn');
       let  currenUserRol = this.userService.userComputed();
       // Validaciones 
       if(token && currenUserRol === expectedRoles[0] ){
-        console.log(`Expect: ${expectedRoles}, Current: ${currenUserRol}`);
+        //console.log(`Expect: ${expectedRoles}, Current: ${currenUserRol}`);
         /* if(currenUserRol === expectedRoles){
           return true;
         }else{

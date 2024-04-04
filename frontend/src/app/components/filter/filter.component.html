@@ -1,0 +1,23 @@
+<div class="filtros sombra contenedor margin">
+    <form> 
+        <div class="campo">
+            <label for="category">Categoría</label>
+            <select 
+                id="category"
+                name="category"
+                [(ngModel)] = "category"
+                (change)="getFilter()"
+            >
+                <option value="">-- Seleccione --</option>
+                <option value="saving">Ahorro</option>
+                <option value="food">Comida</option>
+                <option value="home">Casa</option>
+                <option value="several">Gastos Varios</option>
+                <option value="leisure">Ocio</option>
+                <option value="health">Salud</option>
+                <option value="subscription">Suscripciones</option>
+            </select>
+        </div>
+    </form>
+</div>
+

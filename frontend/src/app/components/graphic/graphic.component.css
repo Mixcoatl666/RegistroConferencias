@@ -1,0 +1,10 @@
+#circle{
+    position: relative;
+}
+
+#circle strong{
+    position: relative;
+    /* left: 4.4rem;
+    top: 9.4rem; */
+    text-align: center;
+}

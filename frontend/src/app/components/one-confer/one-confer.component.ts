@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConferenceService } from '../../services/conference.service';
 
 
@@ -13,12 +13,13 @@ import { ConferenceService } from '../../services/conference.service';
 export class OneConferComponent implements OnInit{
   private id = this.route.snapshot.params['id'];
   public putConfer:any;
+  public confers:Array<any>;
   //  Formulario de conferencias
   conferForm = this.fb.group({
     titulo: ['', [Validators.required]],
     descrip: ['', [Validators.required]], // Agregar el campo de sexo al formulario
     lugar: ['', [Validators.required]],
-    //fecha: ['', [Validators.required]],
+    fecha: ['', [Validators.required]],
     horaInicio: ['', [Validators.required]],
     horaFin: ['', [Validators.required]],
     semblanza: ['', [Validators.required]],
@@ -27,8 +28,11 @@ export class OneConferComponent implements OnInit{
   constructor(
     private fb : FormBuilder,
     private route:ActivatedRoute,
+    private router:Router,
     private conferenceService:ConferenceService
-  ){};
+  ){
+    this.confers = new Array();
+  };
   
   async ngOnInit() {
     this.putConfer = await this.conferenceService.detalConf(this.id);
@@ -36,13 +40,15 @@ export class OneConferComponent implements OnInit{
       titulo: this.putConfer.Titulo,
       descrip: this.putConfer.Descripcion,
       lugar: this.putConfer.Horario.Lugar,
-      //fecha: this.putConfer.Horario.Fecha,
+      fecha: this.putConfer.Horario.Fecha,
       horaInicio: this.putConfer.Horario.HoraInicio,
       horaFin: this.putConfer.Horario.HoraFin,
       semblanza: this.putConfer.Horario.Expositor.Semblanza,
       cupo:this.putConfer.Horario.CupoTotal
     });
     console.log(this.putConfer);
+    this.confers = await this.conferenceService.groupTitles();
+
   }
 
   onSubmitConfer(){
@@ -57,5 +63,6 @@ export class OneConferComponent implements OnInit{
     } = this.conferForm.value;
     console.log(this.conferForm.value);
     this.conferenceService.editConf(this.id,this.conferForm.value);
+    this.router.navigate(['/auth/myconfs']);
   }
 }

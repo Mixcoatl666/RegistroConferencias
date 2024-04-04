@@ -1,4 +1,4 @@
-<div class="crm">
+<!-- <div class="crm">
     <h2 class="crm crm__title">Conferencias</h2>
     <p class="mt-3">Administra las Conferencias</p>
     <div class="crm__container" >
@@ -42,3 +42,47 @@
         }
     </div>
 </div>
+ -->
+
+ <section class="crm crm__container">
+    <h2 class="crm__title wd-90 ">Conferencias</h2>
+    <p class="wd-90 m-auto">Administra las Conferencias</p>
+    <div class="crm__container" >
+        <div class="cont_crm">
+            <div class="th_crm th_crm__title" >
+                <p >Titulo</p>
+            </div>
+            <div class="th_crm th_crm__hour" >
+                <p >Fecha</p>
+            </div>
+            <div class="th_crm th_crm__status">
+                <p >Estatus</p>
+            </div>
+                @for (conf of conferences; track $index) {
+                        <div class="tc_crm__title flex">
+                            <p class="">{{conf.Titulo}}</p>
+                        </div>
+        
+                        <div class="tc_crm__hour flex">
+                            <p class=""><span >Inicio: </span>{{conf.Horario.Fecha}}</p>
+                        </div>
+        
+                        <div class="tc_crm__status flex">
+                            <button 
+                                type="button" 
+                                class="btn" 
+                                (click)="getDetailConf(conf._id)"
+                            >Editar</button>
+                            <button 
+                                type="button" 
+                                class="btn" 
+                                (click)="deleteConfer(conf._id)"
+                            >Eliminar</button>
+                        </div>
+                }
+        </div>
+        @if (conferences.length == 0) {
+            <p class="text-center mt-10" >No hay conferencias aún</p>
+        }
+    </div>
+</section>

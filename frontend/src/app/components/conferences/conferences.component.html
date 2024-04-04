@@ -1,12 +1,12 @@
 <div class="logos">
-    <div class="conferences-container logos-slide">
+    <div class="conferences-container ">
         
         @for (item of listConferences; track $index) {
             <!-- Inicio: Tarjeta de prueba para Asistir a conferencia -->
           <div class="containerConf" id="assist" >
             <div class="cardConf logos">
                 <div class="imageConf">
-                    <img src="https://www.entornoturistico.com/wp-content/uploads/2022/09/Cenotafio-de-Sha-Jahan-en-el-Taj-Mahal.jpg" alt="conferencia img">
+                    <img [src]="item.Horario.Expositor.Foto" alt="conferencia img">
                 </div>
                 <div class="contentConf">
                     <h2>{{item.Titulo}}</h2>

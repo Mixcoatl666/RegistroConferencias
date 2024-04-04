@@ -14,6 +14,10 @@ import { MyConfsComponent } from './components/my-confs/my-confs.component';
 import { OneConferComponent } from './components/one-confer/one-confer.component';
 import { UserComponent } from './layouts/user/user.component';
 import { AuthComponent } from './layouts/auth/auth.component';
+import { SchedulesComponent } from './components/schedules/schedules.component';
+import { AllConferenccesComponent } from './components/all-conferencces/all-conferencces.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { UserConfsComponent } from './components/user-confs/user-confs.component';
 
 const routes: Routes = [
   {
@@ -51,12 +55,6 @@ const routes: Routes = [
         component: DetailConfComponent
       },
       {
-        path: 'administradores', 
-        component: AdministradoresComponent,
-        canActivate:[authGuard],
-        data:{roles:["admin"]}
-      },
-      {
         path: 'confer/add', 
         component: TestBackComponent, 
         canActivate:[authGuard],
@@ -71,6 +69,34 @@ const routes: Routes = [
       {
         path: 'confer/:id', 
         component:OneConferComponent 
+      },
+      {
+        path: 'administradores', 
+        component: AdministradoresComponent,
+        canActivate:[authGuard],
+        data:{roles:["admin"]}
+      },
+      {
+        path: 'horarios', 
+        component: SchedulesComponent,
+        canActivate:[authGuard],
+        data:{roles:["admin"]}
+      },
+      {
+        path: 'all-confs', 
+        component: AllConferenccesComponent,
+        canActivate:[authGuard],
+        data:{roles:["admin"]}
+      },
+      {
+        path:'statistics',
+        component:StatisticsComponent,
+        title:'Estadisticas'
+      },
+      {
+        path:'myassist',
+        component:UserConfsComponent,
+        title:'Asistecias'
       },
       {
         path:'',

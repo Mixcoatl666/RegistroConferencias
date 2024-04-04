@@ -29,7 +29,8 @@ export class UserService {
   async createUser(user:Usuario){
     try {
       const {data} = await clienteAxios.post('/user/register',user);
-      console.log(data);
+      //console.log(data);
+      return data;
     } catch (error) {
       console.log(`Error Angular`);
     }
@@ -61,7 +62,7 @@ export class UserService {
       const decode:any  = jwtDecode(token);
       this.user.set(decode.rol);
       this.isLoged.set(true);
-      console.log(this.user());
+      //console.log(this.user());
     } catch (error) {
       this.isLoged.set(false);
       this.user.set(undefined);
